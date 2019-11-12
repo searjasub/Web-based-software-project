@@ -6,8 +6,7 @@ import javax.persistence.*;
 @Table(name="entries")
 public class Entry {
 
-    @OneToMany
-    private User owner;
+    private Profile profile;
 
     @Column(nullable=false)
     private String title;
@@ -16,7 +15,6 @@ public class Entry {
     private String content;
 
     @Id
-    @Column(nullable=false)
     private String timeInMilliSeconds = System.currentTimeMillis() + "";
 
     public String getTitle() {
@@ -43,11 +41,11 @@ public class Entry {
         this.timeInMilliSeconds = timeInMilliSeconds;
     }
 
-    public User getOwner() {
-        return owner;
+    public Profile getProfile() {
+        return profile;
     }
 
-    public void setOwner(User owner) {
-        this.owner = owner;
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
 }

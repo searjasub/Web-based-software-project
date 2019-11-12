@@ -6,6 +6,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -16,30 +17,18 @@ import java.util.stream.Collectors;
 public class User implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-
-    @Column(nullable = false)
     private String username;
 
     @Column(nullable = false)
+    @Size(min = 4)
     private String password;
 
     @Column(nullable = false)
     private boolean active;
 
-    @OneToMany(mappedBy = "owner")
-    @JsonIgnore
-    private List<Entry> entries = new ArrayList<>();
-
     @ElementCollection
     private List<String> rawAuthorities = new ArrayList<>();
 
-    public User(String username, String password, int id) {
-        this.setUsername(username);
-        this.setPassword(password);
-        this.setId(id);
-    }
 
     public String getUsername() {
         return username;
@@ -58,13 +47,6 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public boolean isActive() {
         return active;
@@ -80,14 +62,6 @@ public class User implements UserDetails {
 
     public void setRawAuthorities(List<String> rawAuthorities) {
         this.rawAuthorities = rawAuthorities;
-    }
-
-    public List<Entry> getEntries() {
-        return entries;
-    }
-
-    public void setEntries(List<Entry> entries) {
-        this.entries = entries;
     }
 
     @Override
