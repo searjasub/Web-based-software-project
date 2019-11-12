@@ -12,6 +12,8 @@ public class DiaryRestController {
     @RequestMapping(path = "/", method = RequestMethod.POST)
     public void doLogin(){
 
+
+
     }
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
