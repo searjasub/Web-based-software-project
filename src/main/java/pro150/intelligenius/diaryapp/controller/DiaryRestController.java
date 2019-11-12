@@ -35,7 +35,7 @@ public class DiaryRestController {
     public void getAllEntries(){
 
 
-
+        System.out.println("some code");
 
 
     }
