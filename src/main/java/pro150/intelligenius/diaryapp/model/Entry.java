@@ -1,21 +1,22 @@
 package pro150.intelligenius.diaryapp.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name="entries")
+@Table(name = "entry")
 public class Entry {
-
-    private Profile profile;
-
-    @Column(nullable=false)
-    private String title;
-
-    @Column(nullable=false)
-    private String content;
 
     @Id
     private String timeInMilliSeconds = System.currentTimeMillis() + "";
+
+    private String title;
+
+    private String content;
+
+    @ManyToMany
+    private List<Profile> profileOwner = new ArrayList<>();
 
     public String getTitle() {
         return title;
@@ -41,11 +42,11 @@ public class Entry {
         this.timeInMilliSeconds = timeInMilliSeconds;
     }
 
-    public Profile getProfile() {
-        return profile;
+    public List<Profile> getProfileOwner() {
+        return profileOwner;
     }
 
-    public void setProfile(Profile profile) {
-        this.profile = profile;
+    public void setProfileOwner(List<Profile> profileOwner) {
+        this.profileOwner = profileOwner;
     }
 }

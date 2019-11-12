@@ -19,13 +19,15 @@ public class Profile {
 
     private String dateOfBirth;
 
+    @ManyToMany(mappedBy = "profileOwner")
     @JsonIgnore
     private List<Entry> entries = new ArrayList<>();
 
     public Profile() {
     }
 
-    public Profile(String name, String dateOfBirth) {
+    public Profile(int profileId, String name, String dateOfBirth) {
+        this.setProfileId(profileId);
         this.setName(name);
         this.setDateOfBirth(dateOfBirth);
     }

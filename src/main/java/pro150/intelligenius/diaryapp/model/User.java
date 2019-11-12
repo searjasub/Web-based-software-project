@@ -97,9 +97,4 @@ public class User implements UserDetails {
     }
 
 
-    @Override
-    public String toString() {
-        return "Username: " + getUsername() + " Password: " + getPassword();
-    }
-
 }
