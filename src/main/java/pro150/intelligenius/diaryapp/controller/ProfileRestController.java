@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 import pro150.intelligenius.diaryapp.model.Profile;
 
 import java.util.List;
@@ -21,6 +22,13 @@ public class ProfileRestController {
         Profile profile = new Profile(0, name, dateOfBirth);
         profileJpaRepository.save(profile);
         return profile.getProfileId();
+    }
+
+    @RequestMapping(path = "/{name}", method = RequestMethod.GET)
+    public ModelAndView home(@PathVariable String name){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("hello");
+        return mav;
     }
 
     @RequestMapping(name = "", method = RequestMethod.GET)
