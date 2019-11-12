@@ -10,7 +10,7 @@ import pro150.intelligenius.diaryapp.model.Profile;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/profiles")
 public class ProfileRestController {
 
     @Autowired
