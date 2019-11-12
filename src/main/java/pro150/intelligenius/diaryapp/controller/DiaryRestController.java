@@ -34,5 +34,9 @@ public class DiaryRestController {
     @RequestMapping(path = "/collection", method = RequestMethod.GET)
     public void getAllEntries(){
 
+
+
+
+
     }
 }
