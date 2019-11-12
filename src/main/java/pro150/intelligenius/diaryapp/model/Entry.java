@@ -1,10 +1,23 @@
 package pro150.intelligenius.diaryapp.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="entries")
 public class Entry {
 
+    private User owner;
+
+    @Column(nullable=false)
     private String title;
+
+    @Column(nullable=false)
     private String content;
-    private String timeInMilliSeconds;
+
+    @Column(nullable=false)
+    private String timeInMilliSeconds = System.currentTimeMillis() + "";
 
     public String getTitle() {
         return title;
@@ -28,5 +41,13 @@ public class Entry {
 
     public void setTimeInMilliSeconds(String timeInMilliSeconds) {
         this.timeInMilliSeconds = timeInMilliSeconds;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 }
