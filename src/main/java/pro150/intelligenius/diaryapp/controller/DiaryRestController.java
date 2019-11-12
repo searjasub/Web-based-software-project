@@ -12,6 +12,8 @@ public class DiaryRestController {
     @RequestMapping(path = "/", method = RequestMethod.POST)
     public void doLogin(){
 
+
+
     }
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
@@ -31,6 +33,10 @@ public class DiaryRestController {
 
     @RequestMapping(path = "/collection", method = RequestMethod.GET)
     public void getAllEntries(){
+
+
+
+
 
     }
 }
