@@ -31,6 +31,13 @@ public class ProfileRestController {
         return profile.getProfileId();
     }
 
+    @RequestMapping(path = "/{name}", method = RequestMethod.GET)
+    public ModelAndView home(@PathVariable String name){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("hello");
+        return mav;
+    }
+
     @RequestMapping(name = "", method = RequestMethod.GET)
     public List<Profile> getAllUsers() {
         return profileJpaRepository.findAll();
