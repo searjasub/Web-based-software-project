@@ -2,12 +2,14 @@ package pro150.intelligenius.diaryapp.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="entries")
 public class Entry {
 
+    @OneToMany
     private User owner;
 
     @Column(nullable=false)
