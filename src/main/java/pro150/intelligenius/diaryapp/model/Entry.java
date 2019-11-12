@@ -1,9 +1,6 @@
 package pro150.intelligenius.diaryapp.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="entries")
@@ -18,6 +15,7 @@ public class Entry {
     @Column(nullable=false)
     private String content;
 
+    @Id
     @Column(nullable=false)
     private String timeInMilliSeconds = System.currentTimeMillis() + "";
 
