@@ -143,10 +143,31 @@
     <option name="width" value="980" />
     <option name="height" value="1040" />
   </component>
-  <component name="ProjectId" id="1TUiWiL9IqREnrD5p1ZANiczgXJ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <OptionsSetting value="false" id="Update" />
-    <ConfirmationsSetting value="2" id="Add" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Web-based-software-project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Web-based-software-project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -264,7 +285,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+
     <property name="restartRequiresConfirmation" value="false" />
+
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -309,8 +332,8 @@
       <option name="presentableId" value="Default" />
       <updated>1572915691350</updated>
       <workItem from="1572915692946" duration="2064000" />
-      <workItem from="1573085778035" duration="749000" />
-      <workItem from="1573521109444" duration="242000" />
+      <workItem from="1573085778035" duration="1502000" />
+      <workItem from="1573519572263" duration="326000" />
     </task>
     <task id="LOCAL-00001" summary="added some test">
       <created>1572916330177</created>
@@ -419,6 +442,7 @@
       <window_info anchor="right" id="Capture Analysis" order="8" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
     </layout-to-restore>
+
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
