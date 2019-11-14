@@ -11,6 +11,6 @@
     <title>Confirmation</title>
 </head>
 <body>
-    <p>Profile: ${name} and DOB: ${dateOfBirth}. Has been created</p>
+    <p>Profile:  and DOB: . Has been created</p>
 </body>
 </html>

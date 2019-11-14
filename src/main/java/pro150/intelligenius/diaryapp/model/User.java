@@ -24,7 +24,7 @@ public class User implements UserDetails {
     private String password;
 
     @Column(nullable = false)
-    private boolean active;
+    private boolean active = true;
 
     @ElementCollection
     private List<String> rawAuthorities = new ArrayList<>();

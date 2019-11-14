@@ -16,21 +16,23 @@ public class ProfileRestController {
     @Autowired
     private ProfileJpaRepository profileJpaRepository;
 
-    @RequestMapping(path = "/{name}", method = RequestMethod.GET)
-    public ModelAndView home(@PathVariable String name){
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("hello");
-        return mav;
-    }
-
-    @RequestMapping(path = "/{name}/{dateOfBirth}", method = RequestMethod.POST)
-
-    public ModelAndView createStudent(@PathVariable String name, @PathVariable String dateOfBirth) {
-        Profile profile = new Profile(0, name, dateOfBirth);
+    @RequestMapping(path = "/create-profile", method = RequestMethod.POST)
+    public ModelAndView createProfile(@ModelAttribute("profile") Profile profile) {
         profileJpaRepository.save(profile);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("confirmation");
         return modelAndView;
+    }
+
+    @RequestMapping(path = "/{name}", method = RequestMethod.GET)
+    public ModelAndView getProfileByName(@PathVariable String name) {
+        ModelAndView mav = new ModelAndView();
+        System.out.println("before get profile");
+        Profile profile = profileJpaRepository.findById(name).orElse(null);
+        System.out.println(profile.getName());
+        mav.addObject("profile", profile);
+        mav.setViewName("showProfile");
+        return mav;
     }
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
@@ -40,43 +42,40 @@ public class ProfileRestController {
         return modelAndView;
     }
 
-    public Profile getProfileById(@PathVariable int id){
-        return profileJpaRepository.findByProfileId(id);
-    }
-
 
     @RequestMapping(path = "/edit/{name}", method = RequestMethod.POST)
-    public ModelAndView editProfileInfo(@PathVariable String name, @RequestBody Map<String, Object> updates) throws NoSuchFieldException, IllegalAccessException {
+    public ModelAndView updateProfile(@PathVariable String name, @ModelAttribute("update") Profile updates) throws NoSuchFieldException, IllegalAccessException {
 
-        Profile profile = profileJpaRepository.findByName(name);
-        Profile p = getProfileById(profile.getProfileId());
-        Class<?> pType = p.getClass();
+        Profile profile = profileJpaRepository.findById(name).orElse(null);
+        assert profile != null;
 
-        for (String propertyName : updates.keySet()){
-            Field field = pType.getDeclaredField(propertyName);
-            field.setAccessible(true);
-            field.set(p, updates.get(propertyName));
-            field.setAccessible(false);
-        }
+        profile.setName(updates.getName());
+        profile.setDateOfBirth(updates.getDateOfBirth());
+//        Class<?> pType = profile.getClass();
+//
+//        for (String propertyName : updates.keySet()){
+//            Field field = pType.getDeclaredField(propertyName);
+//            field.setAccessible(true);
+//            field.set(profile, updates.get(propertyName));
+//            field.setAccessible(false);
+//        }
 
-        profileJpaRepository.save(p);
+        profileJpaRepository.save(profile);
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("profile", p);
+        modelAndView.addObject("profile", profile);
         modelAndView.setViewName("userSettingsSaved");
         return  modelAndView;
     }
 
-    @RequestMapping(path = "/{name}", method = RequestMethod.GET)
-    public ModelAndView home(@PathVariable String name){
-        Profile current = profileJpaRepository.findByName(name);
+    @RequestMapping(path = "/edit/{name}", method = RequestMethod.GET)
+    public ModelAndView displayProfileEdit(@PathVariable String name){
+        Profile current = profileJpaRepository.findById(name).orElse(null);
         ModelAndView mav = new ModelAndView();
-        mav.addObject("id", current.getProfileId());
         mav.addObject("oldName", current.getName());
         mav.setViewName("userSettings");
         return mav;
     }
-
 
     @RequestMapping(name = "/getProfiles", method = RequestMethod.GET)
     public List<Profile> getAllProfiles() {

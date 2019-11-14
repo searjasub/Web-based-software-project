@@ -8,11 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "profile")
-public class Profile {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int profileId;
+public class Profile extends User{
 
     private String name;
 
@@ -25,18 +21,9 @@ public class Profile {
     public Profile() {
     }
 
-    public Profile(int profileId, String name, String dateOfBirth) {
-        this.setProfileId(profileId);
+    public Profile(String name, String dateOfBirth) {
         this.setName(name);
         this.setDateOfBirth(dateOfBirth);
-    }
-
-    public int getProfileId() {
-        return profileId;
-    }
-
-    public void setProfileId(int profileId) {
-        this.profileId = profileId;
     }
 
     public String getName() {
