@@ -5,7 +5,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import pro150.intelligenius.diaryapp.model.Profile;
 
+import java.lang.reflect.Field;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/profiles")
@@ -15,6 +17,7 @@ public class ProfileRestController {
     private ProfileJpaRepository profileJpaRepository;
 
     @RequestMapping(path = "/{name}/{dateOfBirth}", method = RequestMethod.POST)
+
     public ModelAndView createStudent(@PathVariable String name, @PathVariable String dateOfBirth) {
         Profile profile = new Profile(0, name, dateOfBirth);
         profileJpaRepository.save(profile);
@@ -23,14 +26,6 @@ public class ProfileRestController {
         return modelAndView;
     }
 
-//    @RequestMapping(path = "", method = RequestMethod.POST)
-//    public ModelAndView createStudent(@RequestBody Profile newProfile) {
-//        profileJpaRepository.save(newProfile);
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("confirmation");
-//        return modelAndView;
-//    }
-
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public ModelAndView createStudent() {
         ModelAndView modelAndView = new ModelAndView();
@@ -38,10 +33,40 @@ public class ProfileRestController {
         return modelAndView;
     }
 
+    public Profile getProfileById(@PathVariable int id){
+        return profileJpaRepository.findByProfileId(id);
+    }
+
+
+    @RequestMapping(path = "/edit/{name}", method = RequestMethod.POST)
+    public ModelAndView editProfileInfo(@PathVariable String name, @RequestBody Map<String, Object> updates) throws NoSuchFieldException, IllegalAccessException {
+
+        Profile profile = profileJpaRepository.findByName(name);
+        Profile p = getProfileById(profile.getProfileId());
+        Class<?> pType = p.getClass();
+
+        for (String propertyName : updates.keySet()){
+            Field field = pType.getDeclaredField(propertyName);
+            field.setAccessible(true);
+            field.set(p, updates.get(propertyName));
+            field.setAccessible(false);
+        }
+
+        profileJpaRepository.save(p);
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("profile", p);
+        modelAndView.setViewName("userSettingsSaved");
+        return  modelAndView;
+    }
+
     @RequestMapping(path = "/{name}", method = RequestMethod.GET)
     public ModelAndView home(@PathVariable String name){
+        Profile current = profileJpaRepository.findByName(name);
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("hello");
+        mav.addObject("id", current.getProfileId());
+        mav.addObject("oldName", current.getName());
+        mav.setViewName("userSettings");
         return mav;
     }
 
