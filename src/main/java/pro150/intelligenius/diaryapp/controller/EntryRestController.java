@@ -22,27 +22,33 @@ public class EntryRestController {
     @Autowired
     private UserJpaRepository userJpaRepository;
 
-    //TODO, This line may need changing, not sure of the path
-    @RequestMapping(path = "/create-entry", method = RequestMethod.POST)
-    public void createEntry(@ModelAttribute("entry") Entry entry, Principal principal) {
+    @RequestMapping(path = "/addEntry", method = RequestMethod.POST)
+    public ModelAndView createEntry(@ModelAttribute("entry") Entry entry, Principal principal) {
         User u = userJpaRepository.findById(principal.getName()).orElse(null);
         assert u != null;
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("showEntries");
         u.addToEntryList(entry);
         userJpaRepository.save(u);
         //send to jpa that allows the user to create an entry
         entryJpaRepository.save(entry);
+        return mav;
     }
 
     @RequestMapping(path = "", method = RequestMethod.GET)
     public ModelAndView getAllEntries(Principal principal) {
         User u = userJpaRepository.findById(principal.getName()).orElse(null);
         List<Entry> allEntries = u.getEntries();
-
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("list", allEntries);
-        modelAndView.setViewName("showDiary");
+        modelAndView.setViewName("showEntries");
         return modelAndView;
     }
 
-
+    @RequestMapping(path = "/addEntry", method = RequestMethod.GET)
+    public ModelAndView addEntry() {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("addDiary");
+        return mav;
+    }
 }
