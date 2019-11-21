@@ -23,7 +23,7 @@ public class EntryRestController {
     private UserJpaRepository userJpaRepository;
 
     //TODO, This line may need changing, not sure of the path
-    @RequestMapping(path = "", method = RequestMethod.POST)
+    @RequestMapping(path = "/create-entry", method = RequestMethod.POST)
     public void createEntry(@RequestBody Entry newEntry,Principal principal) {
         User u = userJpaRepository.findById(principal.getName()).orElse(null);
         //send to jpa that allows the user to create an entry

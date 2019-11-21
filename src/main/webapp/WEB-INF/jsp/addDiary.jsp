@@ -12,7 +12,7 @@
 </head>
 <body>
     <div>
-        <form action="where we send diary data to goes here" method="POST"> <!-- PROBABLY -->
+        <form action="/profiles/create-profile" method="POST"> <!-- PROBABLY -->
             <input id="entryTitle" type="text" name="title" placeholder="Title">
             <input id="entryBody" type="text" name="body" placeholder="What are you feeling today?">
             <!-- attach image to diary entry here??? -->
