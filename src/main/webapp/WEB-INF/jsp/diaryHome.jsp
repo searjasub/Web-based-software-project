@@ -13,11 +13,11 @@
 </head>
 <body>
 <div id="navBar">
-    <span>BUTTON GOES HERE</span>
-    <span>BUTTON GOES HERE</span>
-    <span>BUTTON GOES HERE</span>
-    <span>BUTTON GOES HERE</span>
-    <span>PROFILE PIC??? GOES HERE</span>
+    <span><button>Show Diary Entries</button></span>
+    <span><button>Add Diary Entry</button></span>
+    <span><button>Edit Personal Settings</button></span>
+  <!-- <span><button>News and Weather</button></span> -->
+  <!-- <span>PROFILE PIC??? GOES HERE</span> -->
 </div>
 <div id="homeScreen">
     <span id="entries">

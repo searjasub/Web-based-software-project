@@ -24,6 +24,7 @@
             <div><%=fullTime%>%></div>
             <div><%=content%></div>
         </div>
+    <div>------------</div>
     <% }%>
 </body>
 </html>
