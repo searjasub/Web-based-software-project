@@ -29,6 +29,8 @@ public class User implements UserDetails {
     @ElementCollection
     private List<String> rawAuthorities = new ArrayList<>();
 
+    @ElementCollection
+    private List<Entry> entries = new ArrayList<>();
 
     public String getUsername() {
         return username;
@@ -82,6 +84,14 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return this.active;
+    }
+
+    public void setEntries(List<Entry> entries) {
+        this.entries = entries;
+    }
+
+    public List<Entry> getEntries() {
+        return entries;
     }
 
     @Override

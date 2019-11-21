@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pro150.intelligenius.diaryapp.model.Entry;
 import pro150.intelligenius.diaryapp.model.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -25,12 +26,14 @@ public class EntryRestController {
     @RequestMapping(path = "", method = RequestMethod.POST)
     public void createEntry(@RequestBody Entry newEntry,Principal principal) {
         User u = userJpaRepository.findById(principal.getName()).orElse(null);
-
+        //send to jpa that allows the user to create an entry
         entryJpaRepository.save(newEntry);
     }
 
     @RequestMapping(path = "", method = RequestMethod.GET)
-    public List<Entry> getAllEntries() {
+    public List<Entry> getAllEntries(Principal principal) {
+        User u = userJpaRepository.findById(principal.getName()).orElse(null);
+        List<Entry> allEntries = u.getEntries();
         return entryJpaRepository.findAll();
     }
 
