@@ -1,23 +1,18 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Daniil Baydak
-  Date: 11/13/2019
-  Time: 6:43 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Add Diary Entry</title>
 </head>
 <body>
+<h1 id="createDiaryHeader">Create Diary Entry Here!</h1>
     <div>
-        <form action="/profiles/create-profile" method="POST"> <!-- PROBABLY -->
+        <%--@elvariable id="entry" type=""--%>
+        <form:form action="/entries/create-entry" method="POST" modelAttribute="entry">
             <input id="entryTitle" type="text" name="title" placeholder="Title">
             <input id="entryBody" type="text" name="body" placeholder="What are you feeling today?">
-            <!-- attach image to diary entry here??? -->
             <input id="entrySubmit" type="submit" name="submit" value="Make Diary!">
-        </form>
+        </form:form>
     </div>
 </body>
 </html>

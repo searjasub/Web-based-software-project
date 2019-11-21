@@ -94,6 +94,10 @@ public class User implements UserDetails {
         return entries;
     }
 
+    public void addToEntryList(Entry e){
+        this.entries.add(e);
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.getRawAuthorities().stream()

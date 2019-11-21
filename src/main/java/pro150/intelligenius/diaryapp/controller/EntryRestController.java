@@ -2,11 +2,10 @@ package pro150.intelligenius.diaryapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import java.security.Principal;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+
+import org.springframework.web.bind.annotation.*;
 import pro150.intelligenius.diaryapp.model.Entry;
+import pro150.intelligenius.diaryapp.model.Profile;
 import pro150.intelligenius.diaryapp.model.User;
 
 import java.util.ArrayList;
@@ -24,10 +23,13 @@ public class EntryRestController {
 
     //TODO, This line may need changing, not sure of the path
     @RequestMapping(path = "/create-entry", method = RequestMethod.POST)
-    public void createEntry(@RequestBody Entry newEntry,Principal principal) {
+    public void createEntry(@ModelAttribute("entry") Entry entry, Principal principal) {
         User u = userJpaRepository.findById(principal.getName()).orElse(null);
+        assert u != null;
+        u.addToEntryList(entry);
+        userJpaRepository.save(u);
         //send to jpa that allows the user to create an entry
-        entryJpaRepository.save(newEntry);
+        entryJpaRepository.save(entry);
     }
 
     @RequestMapping(path = "", method = RequestMethod.GET)
