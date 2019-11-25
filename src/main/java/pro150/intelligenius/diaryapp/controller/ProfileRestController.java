@@ -27,9 +27,7 @@ public class ProfileRestController {
     @RequestMapping(path = "/{name}", method = RequestMethod.GET)
     public ModelAndView getProfileByName(@PathVariable String name) {
         ModelAndView mav = new ModelAndView();
-        System.out.println("before get profile");
         Profile profile = profileJpaRepository.findById(name).orElse(null);
-        System.out.println(profile.getName());
         mav.addObject("profile", profile);
         mav.setViewName("showProfile");
         return mav;

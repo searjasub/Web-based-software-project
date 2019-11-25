@@ -18,7 +18,6 @@
             <label for="dateOfBirth" class="control-label">Date of Birth</label><i class="bar"></i>
         </div>
         <div class="button-container" id="button-container">
-            <div class="validation" id="buttonVal"></div>
             <input class="button" type="submit" value="Update" id="button"/>
         </div>
     </form:form>
