@@ -2,9 +2,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="views/style.css"/>
+    <style>
+        <%@include file="views/style.css"%>
+    </style>
     <title>Add Diary Entry</title>
 </head>
 <body>
+<div class="container">
 <h1 id="createDiaryHeader">Create Diary Entry Here!</h1>
     <div>
         <%--@elvariable id="entry" type=""--%>
@@ -14,5 +19,6 @@
             <input id="entrySubmit" type="submit" name="submit" value="Make Diary!">
         </form:form>
     </div>
+</div>
 </body>
 </html>

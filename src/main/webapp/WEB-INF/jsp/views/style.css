@@ -24,6 +24,18 @@ h1 {
     margin: 0 0 2em;
 }
 
+#entryTitle{
+
+}
+
+#entryBody{
+    width: 35%;
+}
+
+#entrySubmit{
+
+}
+
 .container {
     position: relative;
     max-width: 40rem;

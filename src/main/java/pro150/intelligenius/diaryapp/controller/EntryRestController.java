@@ -45,6 +45,7 @@ public class EntryRestController {
             modelAndView.setViewName("showEntries");
         }
         catch(NullPointerException npe) {
+            modelAndView.addObject("errorMessage", "No Entries Available");
             modelAndView.setViewName("error");
         }
         return modelAndView;
