@@ -21,7 +21,7 @@
 <div class="container">
     <h1>Welcome to your diary</h1>
     <%--@elvariable id="profile" type=""--%>
-    <form:form method="post" action="/login" modelAttribute="profile">
+    <form:form method="post" action="/home" modelAttribute="profile">
         <div class="form-group">
             <input type="text" required="required" id="username" autocomplete="off" name="username"/>
             <label for="username" class="control-label">Username</label><i class="bar"></i>

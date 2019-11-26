@@ -33,12 +33,12 @@ public class ProfileRestController {
         return mav;
     }
 
-    @RequestMapping(path = "/", method = RequestMethod.GET)
-    public ModelAndView createStudent() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("calendar");
-        return modelAndView;
-    }
+//    @RequestMapping(path = "/", method = RequestMethod.GET)
+//    public ModelAndView createStudent() {
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("calendar");
+//        return modelAndView;
+//    }
 
 
     @RequestMapping(path = "/edit/{name}", method = RequestMethod.POST)
