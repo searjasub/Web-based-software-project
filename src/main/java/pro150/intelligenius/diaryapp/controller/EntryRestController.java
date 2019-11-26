@@ -38,10 +38,15 @@ public class EntryRestController {
     @RequestMapping(path = "", method = RequestMethod.GET)
     public ModelAndView getAllEntries(Principal principal) {
         User u = userJpaRepository.findById(principal.getName()).orElse(null);
-        List<Entry> allEntries = u.getEntries();
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("list", allEntries);
-        modelAndView.setViewName("showEntries");
+        try{
+            List<Entry> allEntries = u.getEntries();
+            modelAndView.addObject("list", allEntries);
+            modelAndView.setViewName("showEntries");
+        }
+        catch(NullPointerException npe) {
+            modelAndView.setViewName("error");
+        }
         return modelAndView;
     }
 

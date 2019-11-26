@@ -9,8 +9,8 @@
     <div>
         <%--@elvariable id="entry" type=""--%>
         <form:form action="/entries/addEntry" method="POST" modelAttribute="entry">
-            <input id="entryTitle" type="text" name="title" placeholder="Title">
-            <input id="entryBody" type="text" name="body" placeholder="What are you feeling today?">
+            <input id="entryTitle" type="text" name="title" placeholder="Title" autocomplete="false">
+            <input id="entryBody" type="text" name="body" placeholder="What are you feeling today?" autocomplete="false">
             <input id="entrySubmit" type="submit" name="submit" value="Make Diary!">
         </form:form>
     </div>

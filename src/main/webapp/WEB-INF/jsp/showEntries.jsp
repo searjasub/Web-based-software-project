@@ -4,7 +4,7 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<% List<Entry> allEntries= (List<Entry>) request.getAttribute("list");%>
+<% List<Entry> allEntries = (List<Entry>) request.getAttribute("list");%>
 <html>
 <head>
     <title>Your Diaries</title>
