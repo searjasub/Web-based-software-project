@@ -8,7 +8,7 @@
 <h1 id="createDiaryHeader">Create Diary Entry Here!</h1>
     <div>
         <%--@elvariable id="entry" type=""--%>
-        <form:form action="/entries/create-entry" method="POST" modelAttribute="entry">
+        <form:form action="/entries/addEntry" method="POST" modelAttribute="entry">
             <input id="entryTitle" type="text" name="title" placeholder="Title">
             <input id="entryBody" type="text" name="body" placeholder="What are you feeling today?">
             <input id="entrySubmit" type="submit" name="submit" value="Make Diary!">
