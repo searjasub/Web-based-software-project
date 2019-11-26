@@ -24,16 +24,22 @@ h1 {
     margin: 0 0 2em;
 }
 
-#entryTitle{
+#entryDiv{
+    padding-bottom: 10px;
+}
 
+#entryTitle{
+    font-size: 20pt;
+    width: 100%;
 }
 
 #entryBody{
-    width: 35%;
+    font-size: 20pt;
+    width: 100%;
 }
 
 #entrySubmit{
-
+    text-align: center;
 }
 
 .container {
