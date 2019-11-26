@@ -14,9 +14,9 @@
     <div>
         <%--@elvariable id="entry" type=""--%>
         <form:form action="/entries/addEntry" method="POST" modelAttribute="entry">
-            <input id="entryTitle" type="text" name="title" placeholder="Title" autocomplete="false">
-            <input id="entryBody" type="text" name="body" placeholder="What are you feeling today?" autocomplete="false">
-            <input id="entrySubmit" type="submit" name="submit" value="Make Diary!">
+            <div id="entryDiv"><input id="entryTitle" type="text" name="title" placeholder="Title" autocomplete="false"></div>
+            <div id="entryDiv"><input id="entryBody" type="text" name="body" placeholder="What are you feeling today?" autocomplete="false"></div>
+            <div><input id="entrySubmit" type="submit" name="submit" value="Make Diary!"></div>
         </form:form>
     </div>
 </div>
