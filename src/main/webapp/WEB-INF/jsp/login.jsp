@@ -15,13 +15,34 @@
         <%@include file="views/style.css"%>
     </style>
     <title>Login to your Diary</title>
+    <script type="application/javascript">
+        var username = null, password = null;
+
+        function doLogin() {
+            username = document.getElementById('username').value;
+            password = document.getElementById('password').value;
+            var url = "/home"
+            var xmlHttp = new XMLHttpRequest();
+
+            xmlHttp.open("POST", "/home", true);
+            xmlHttp.setRequestHeader('Authorization', createAuthHeaderValue())
+
+        }
+
+        function createAuthHeaderValue() {
+            var rawAuth = username + ":" + password;
+            var encAuth = btoa(rawAuth);
+            return "Basic " + encAuth;
+        }
+
+    </script>
 </head>
 <body>
 
 <div class="container">
     <h1>Welcome to your diary</h1>
     <%--@elvariable id="profile" type=""--%>
-    <form:form method="post" action="/home" modelAttribute="profile">
+    <form:form method="post" onsubmit="return false;" modelAttribute="profile">
         <div class="form-group">
             <input type="text" required="required" id="username" autocomplete="off" name="username"/>
             <label for="username" class="control-label">Username</label><i class="bar"></i>
@@ -31,7 +52,7 @@
             <label for="password" class="control-label">Password</label><i class="bar"></i>
         </div>
         <div class="button-container" id="button-container">
-            <input class="button" type="submit" value="Login" id="button"/>
+            <input class="button" type="submit" value="Login" id="button" onclick="doLogin()"/>
         </div>
         <div class="button-container" id="button-container">
             <a href="/profiles/">
