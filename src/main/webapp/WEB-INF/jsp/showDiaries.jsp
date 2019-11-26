@@ -10,20 +10,22 @@
     <title>Your Diaries</title>
 </head>
 <body>
-    <% for(int x = 0; x < allEntries.size(); x++){
-        String title = allEntries.get(x).getTitle();
-        String content = allEntries.get(x).getContent();
-        String time = allEntries.get(x).getTimeInMilliSeconds();
-        Long longTime = Long.parseLong(time);
+    <% for (Entry entry : allEntries) {
+        String title = entry.getTitle();
+        String content = entry.getContent();
+        String time = entry.getTimeInMilliSeconds();
+        long longTime = Long.parseLong(time);
         Date datetime = new Date(longTime);
         SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy 'at' HH:mm");
         String fullTime = formatter.format(datetime);
     %>
-        <div>
-            <div><%=title%></div>
-            <div><%=fullTime%>%></div>
-            <div><%=content%></div>
+    <div>
+        <div><%=title%>
         </div>
+        <div><%=fullTime%>%></div>
+        <div><%=content%>
+        </div>
+    </div>
     <div>------------</div>
     <% }%>
 </body>
