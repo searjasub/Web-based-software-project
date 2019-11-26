@@ -32,6 +32,10 @@ public class User implements UserDetails {
     @ElementCollection
     private List<Entry> entries = new ArrayList<>();
 
+    public User() {
+        rawAuthorities.add("User");
+    }
+
     public String getUsername() {
         return username;
     }
