@@ -1,5 +1,7 @@
 package pro150.intelligenius.diaryapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +17,10 @@ public class Entry {
 
     private String content;
 
-    @ManyToMany
-    private List<Profile> profileOwner = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "owner")
+    @JsonIgnore
+    private Profile profileOwner;
 
     public String getTitle() {
         return title;
@@ -42,11 +46,11 @@ public class Entry {
         this.timeInMilliSeconds = timeInMilliSeconds;
     }
 
-    public List<Profile> getProfileOwner() {
+    public Profile getProfileOwner() {
         return profileOwner;
     }
 
-    public void setProfileOwner(List<Profile> profileOwner) {
+    public void setProfileOwner(Profile profileOwner) {
         this.profileOwner = profileOwner;
     }
 }

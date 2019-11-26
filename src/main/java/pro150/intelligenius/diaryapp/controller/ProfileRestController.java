@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import pro150.intelligenius.diaryapp.model.Profile;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.security.Principal;
 import java.util.List;
@@ -18,11 +20,13 @@ public class ProfileRestController {
     private ProfileJpaRepository profileJpaRepository;
 
     @RequestMapping(path = "/create-profile", method = RequestMethod.POST)
-    public ModelAndView createProfile(@ModelAttribute("profile") Profile profile) {
+    public void createProfile(@ModelAttribute("profile") Profile profile, HttpServletResponse response) throws IOException {
         profileJpaRepository.save(profile);
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("home");
-        return modelAndView;
+
+        response.sendRedirect("/home");
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("home");
+//        return modelAndView;
     }
 
     @RequestMapping(path = "/{name}", method = RequestMethod.GET)

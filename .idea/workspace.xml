@@ -2,7 +2,204 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="152863f8-044a-406e-b9d5-527d9bb82e3f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/EntryRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/EntryRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/LoginJpaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/LoginJpaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/ProfileRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/ProfileRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/model/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/model/Entry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/model/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/model/Profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/addDiary.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/confirmation.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/createProfile.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/home.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showEntries.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showProfile.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/userSettings.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/userSettingsSaved.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/examples/background-events.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/examples/daygrid-views.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/examples/external-dragging-2cals.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/examples/external-dragging-builtin.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/examples/full-height.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/examples/google-calendar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/examples/js/theme-chooser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/examples/json.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/examples/json/events.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/examples/list-views.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/examples/locales.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/examples/month-view.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/examples/php/get-events.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/examples/php/get-time-zones.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/examples/php/utils.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/examples/rrule.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/examples/selectable.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/examples/theming.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/examples/time-zones.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/examples/timegrid-views.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/examples/week-numbers.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/bootstrap/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/bootstrap/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/bootstrap/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/bootstrap/main.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/bootstrap/main.esm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/bootstrap/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/bootstrap/main.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/bootstrap/main.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/bootstrap/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales-all.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales-all.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/af.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/ar-dz.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/ar-kw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/ar-ly.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/ar-ma.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/ar-sa.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/ar-tn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/ar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/bg.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/bs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/ca.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/cs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/da.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/de.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/el.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/en-au.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/en-gb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/en-nz.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/es-us.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/es.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/et.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/eu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/fa.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/fi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/fr-ca.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/fr-ch.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/fr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/gl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/he.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/hi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/hr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/hu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/id.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/is.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/it.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/ja.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/ka.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/kk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/ko.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/lb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/lt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/lv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/mk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/ms.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/nb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/nl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/nn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/pl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/pt-br.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/pt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/ro.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/ru.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/sk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/sl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/sq.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/sr-cyrl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/sr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/sv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/th.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/tr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/uk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/vi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/zh-cn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/locales/zh-tw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/main.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/main.esm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/main.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/main.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/core/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/daygrid/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/daygrid/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/daygrid/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/daygrid/main.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/daygrid/main.esm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/daygrid/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/daygrid/main.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/daygrid/main.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/daygrid/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/google-calendar/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/google-calendar/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/google-calendar/main.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/google-calendar/main.esm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/google-calendar/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/google-calendar/main.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/google-calendar/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/interaction/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/interaction/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/interaction/main.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/interaction/main.esm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/interaction/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/interaction/main.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/interaction/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/js/theme-chooser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/list/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/list/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/list/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/list/main.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/list/main.esm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/list/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/list/main.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/list/main.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/list/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/luxon/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/luxon/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/luxon/main.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/luxon/main.esm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/luxon/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/luxon/main.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/luxon/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/moment-timezone/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/moment-timezone/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/moment-timezone/main.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/moment-timezone/main.esm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/moment-timezone/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/moment-timezone/main.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/moment-timezone/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/moment/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/moment/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/moment/main.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/moment/main.esm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/moment/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/moment/main.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/moment/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/rrule/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/rrule/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/rrule/main.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/rrule/main.esm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/rrule/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/rrule/main.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/rrule/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/timegrid/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/timegrid/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/timegrid/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/timegrid/main.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/timegrid/main.esm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/timegrid/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/timegrid/main.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/timegrid/main.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/packages/timegrid/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/calendar/vendor/rrule.js" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,11 +226,6 @@
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
   </component>
   <component name="ProjectId" id="1TUiWiL9IqREnrD5p1ZANiczgXJ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -104,7 +296,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="bf7401a6-4806-469f-b592-696bf2876981" name="Default Changelist" comment="" />
+      <changelist id="152863f8-044a-406e-b9d5-527d9bb82e3f" name="Default Changelist" comment="" />
       <created>1572915691350</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -114,6 +306,7 @@
       <workItem from="1573521109444" duration="242000" />
       <workItem from="1573599954805" duration="10142000" />
       <workItem from="1574295323444" duration="2625000" />
+      <workItem from="1574799200907" duration="11462000" />
     </task>
     <task id="LOCAL-00001" summary="added some test">
       <created>1572916330177</created>
@@ -199,7 +392,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574730249942</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="kk">
+      <created>1574735990563</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1574735990563</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,6 +444,7 @@
     <MESSAGE value="calendar moved to home" />
     <MESSAGE value="signed up working" />
     <MESSAGE value="calendar gets posts per day" />
-    <option name="LAST_COMMIT_MESSAGE" value="calendar gets posts per day" />
+    <MESSAGE value="kk" />
+    <option name="LAST_COMMIT_MESSAGE" value="kk" />
   </component>
 </project>
