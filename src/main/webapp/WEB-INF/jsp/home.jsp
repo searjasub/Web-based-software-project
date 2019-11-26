@@ -116,6 +116,13 @@
     </style>
 </head>
 <body>
+<div class="header">
+    <div class="header-right">
+        <a href="/entries">Show Diary Entries</a>
+        <a href="/entries/addEntry">Add Diary Entry</a>
+        <a href="/profiles/edit">Edit Personal Settings</a>
+    </div>
+</div>
 
 <div id='calendar' style="float: left"></div>
 

@@ -1,4 +1,4 @@
-<%--
+<%@ page import="java.security.Principal" %><%--
   Created by IntelliJ IDEA.
   User: Daniil Baydak
   Date: 11/13/2019
@@ -12,13 +12,15 @@
     <title>Title</title>
 </head>
 <body>
-<div id="navBar">
-    <span><button>Show Diary Entries</button></span>
+
+
+<nav id="navBar">
+    <span><button></button></span>
     <span><button>Add Diary Entry</button></span>
-    <span><button>Edit Personal Settings</button></span>
+    <span><button></button></span>
   <!-- <span><button>News and Weather</button></span> -->
   <!-- <span>PROFILE PIC??? GOES HERE</span> -->
-</div>
+</nav>
 <div id="homeScreen">
     <span id="entries">
         <!-- JAVA AND OTHER STUFF to display all of the diary entries goes here-->

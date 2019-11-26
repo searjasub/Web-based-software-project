@@ -6,6 +6,7 @@ import org.springframework.web.servlet.ModelAndView;
 import pro150.intelligenius.diaryapp.model.Profile;
 
 import java.lang.reflect.Field;
+import java.security.Principal;
 import java.util.List;
 import java.util.Map;
 
@@ -41,10 +42,10 @@ public class ProfileRestController {
     }
 
 
-    @RequestMapping(path = "/edit/{name}", method = RequestMethod.POST)
-    public ModelAndView updateProfile(@PathVariable String name, @ModelAttribute("update") Profile updates) throws NoSuchFieldException, IllegalAccessException {
+    @RequestMapping(path = "/edit", method = RequestMethod.POST)
+    public ModelAndView updateProfile(Principal principal, @ModelAttribute("update") Profile updates) throws NoSuchFieldException, IllegalAccessException {
 
-        Profile profile = profileJpaRepository.findById(name).orElse(null);
+        Profile profile = profileJpaRepository.findById(principal.getName()).orElse(null);
         assert profile != null;
 
         profile.setName(updates.getName());
@@ -66,9 +67,9 @@ public class ProfileRestController {
         return  modelAndView;
     }
 
-    @RequestMapping(path = "/edit/{name}", method = RequestMethod.GET)
-    public ModelAndView displayProfileEdit(@PathVariable String name){
-        Profile current = profileJpaRepository.findById(name).orElse(null);
+    @RequestMapping(path = "/edit", method = RequestMethod.GET)
+    public ModelAndView displayProfileEdit(Principal principal){
+        Profile current = profileJpaRepository.findById(principal.getName()).orElse(null);
         ModelAndView mav = new ModelAndView();
         mav.addObject("oldName", current.getName());
         mav.setViewName("userSettings");
