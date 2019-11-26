@@ -36,7 +36,7 @@ public class ProfileRestController {
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public ModelAndView createStudent() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("createProfile");
+        modelAndView.setViewName("calendar");
         return modelAndView;
     }
 
