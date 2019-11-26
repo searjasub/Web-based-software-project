@@ -25,7 +25,7 @@ public class LoginJpaController {
         return modelAndView;
     }
 
-    @RequestMapping(path = "/home", method = RequestMethod.POST)
+    @RequestMapping(path = "/home", method = RequestMethod.GET)
     public ModelAndView home(@ModelAttribute("profile") Profile profile) {
 //        profileJpaRepository.save(profile);
 //        Profile profile1
@@ -37,6 +37,11 @@ public class LoginJpaController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("home");
         return modelAndView;
+    }
+
+    @RequestMapping(path = "/home", method = RequestMethod.POST)
+    public void postHome(@ModelAttribute("profile") Profile profile) {
+        home(profile);
     }
 
 }
