@@ -21,7 +21,7 @@ public class ProfileRestController {
     public ModelAndView createProfile(@ModelAttribute("profile") Profile profile) {
         profileJpaRepository.save(profile);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("confirmation");
+        modelAndView.setViewName("home");
         return modelAndView;
     }
 
