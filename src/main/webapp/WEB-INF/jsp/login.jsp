@@ -9,11 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-
-    <link rel="stylesheet" type="text/css" href="views/style.css"/>
-    <style>
-        <%@include file="views/style.css"%>
-    </style>
+    <link rel="stylesheet" type="text/css" href="../views/style.css"/>
     <title>Login to your Diary</title>
 </head>
 <body>
