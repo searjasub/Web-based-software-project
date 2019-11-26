@@ -24,6 +24,24 @@ h1 {
     margin: 0 0 2em;
 }
 
+#entryDiv{
+    padding-bottom: 10px;
+}
+
+#entryTitle{
+    font-size: 20pt;
+    width: 100%;
+}
+
+#entryBody{
+    font-size: 20pt;
+    width: 100%;
+}
+
+#entrySubmit{
+    text-align: center;
+}
+
 .container {
     position: relative;
     max-width: 40rem;

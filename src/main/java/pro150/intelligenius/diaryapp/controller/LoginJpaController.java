@@ -2,7 +2,6 @@ package pro150.intelligenius.diaryapp.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +26,6 @@ public class LoginJpaController {
     }
 
     @RequestMapping(path = "/home", method = RequestMethod.POST)
-    @PreAuthorize("hasAuthority('USER')")
     public ModelAndView home(@ModelAttribute("profile") Profile profile) {
         Profile personLoggingIn = profileJpaRepository.findById(profile.getName()).orElse(null);
         ModelAndView modelAndView = new ModelAndView();
@@ -39,6 +37,11 @@ public class LoginJpaController {
 //            modelAndView.setViewName("login");
 //        }
         return modelAndView;
+    }
+
+    @RequestMapping(path = "/home", method = RequestMethod.POST)
+    public void postHome(@ModelAttribute("profile") Profile profile) {
+        home(profile);
     }
 
 }

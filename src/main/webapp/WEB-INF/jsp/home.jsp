@@ -1,21 +1,23 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Searjasub Lopez
-  Date: 11/25/2019
-  Time: 7:12 AM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.List" %>
+<%@ page import="pro150.intelligenius.diaryapp.model.Entry" %>
+<%@ page import="pro150.intelligenius.diaryapp.model.Profile" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
+<% Profile profile = (Profile) request.getAttribute("profile");
+    List<Entry> entries = profile.getEntries(); %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link href='../calendar/packages/core/main.css' rel='stylesheet' />
-    <link href='../calendar/packages/daygrid/main.css' rel='stylesheet' />
-    <link href='../calendar/packages/timegrid/main.css' rel='stylesheet' />
-    <link href='../calendar/packages/list/main.css' rel='stylesheet' />
-    <link href='../calendar/packages/bootstrap/main.css' rel='stylesheet' />
+    <link href='../calendar/packages/core/main.css' rel='stylesheet'/>
+    <link href='../calendar/packages/daygrid/main.css' rel='stylesheet'/>
+    <link href='../calendar/packages/timegrid/main.css' rel='stylesheet'/>
+    <link href='../calendar/packages/list/main.css' rel='stylesheet'/>
+    <link href='../calendar/packages/bootstrap/main.css' rel='stylesheet'/>
     <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
     <%--    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet' />--%>
-    <link href='https://bootswatch.com/4/litera/bootstrap.min.css' rel='stylesheet' />
+    <link href='https://bootswatch.com/4/litera/bootstrap.min.css' rel='stylesheet'/>
     <title>Homepage</title>
 
     <script src='../calendar/packages/core/main.js'></script>
@@ -27,75 +29,46 @@
 
     <script>
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
 
             var calendar = new FullCalendar.Calendar(calendarEl, {
-                plugins: [ 'bootstrap', 'interaction', 'dayGrid', 'timeGrid', 'list' ],
+                plugins: ['bootstrap', 'interaction', 'dayGrid', 'timeGrid', 'list'],
                 themeSystem: 'bootstrap',
                 // header: {
                 //     left: 'prev',
                 //     center: 'title',
                 //     right: 'next'
                 // },
-                navLinks: false, // can click day/week names to navigate views
+                navLinks: true, // can click day/week names to navigate views
                 businessHours: true, // display business hours
-                editable: true,
                 events: [
-                    {
-                        title: 'Business Lunch',
-                        start: '2019-08-03T13:00:00',
-                        constraint: 'businessHours'
-                    },
-                    {
-                        title: 'Meeting',
-                        start: '2019-08-13T11:00:00',
-                        constraint: 'availableForMeeting', // defined below
-                        color: '#257e4a'
-                    },
-                    {
-                        title: 'Conference',
-                        start: '2019-08-18',
-                        end: '2019-08-20'
-                    },
-                    {
-                        title: 'Party',
-                        start: '2019-08-29T20:00:00'
-                    },
+                    <% Map<String, Integer> entriesPerDate = new HashMap<>();
+                    entriesPerDate.put("2019-11-23", 8);
+                    entriesPerDate.put("2019-11-25", 4);
+                    entriesPerDate.put("2019-11-29", 1);
+                    for(Entry entry: entries){
+                        Date timeStamp = new Date(Long.parseLong(entry.getTimeInMilliSeconds()));
+                        SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy");
+                        String formatted = formatter.format(timeStamp);
 
-                    // areas where "Meeting" must be dropped
+                        if(entriesPerDate.containsKey(formatted)) {
+                            entriesPerDate.put(formatted, entriesPerDate.get(formatted) + 1);
+                        } else {
+                            entriesPerDate.put(formatted, 1);
+                        }
+                    } %>
+                    <% for(Map.Entry element : entriesPerDate.entrySet()) {%>
                     {
-                        groupId: 'availableForMeeting',
-                        start: '2019-08-11T10:00:00',
-                        end: '2019-08-11T16:00:00',
-                        rendering: 'background'
+                        title: '<%=element.getValue()%>' + ' Posts',
+                        start: '<%=(String)element.getKey()%>'
                     },
-                    {
-                        groupId: 'availableForMeeting',
-                        start: '2019-08-13T10:00:00',
-                        end: '2019-08-13T16:00:00',
-                        rendering: 'background'
-                    },
-
-                    // red areas where no events can be dropped
-                    {
-                        start: '2019-08-24',
-                        end: '2019-08-28',
-                        overlap: false,
-                        rendering: 'background',
-                        color: '#ff9f89'
-                    },
-                    {
-                        start: '2019-08-06',
-                        end: '2019-08-08',
-                        overlap: false,
-                        rendering: 'background',
-                        color: '#ff9f89'
-                    }
+                    <%}%>
                 ]
-            });
 
+        });
             calendar.render();
+
         });
 
     </script>
@@ -125,6 +98,7 @@
 </div>
 
 <div id='calendar' style="float: left"></div>
+
 
 </body>
 </html>
