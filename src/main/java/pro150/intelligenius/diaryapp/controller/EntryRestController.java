@@ -1,15 +1,15 @@
 package pro150.intelligenius.diaryapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import java.security.Principal;
-
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import pro150.intelligenius.diaryapp.model.Entry;
-import pro150.intelligenius.diaryapp.model.Profile;
 import pro150.intelligenius.diaryapp.model.User;
 
-import java.util.ArrayList;
+import java.security.Principal;
 import java.util.List;
 
 @RestController
