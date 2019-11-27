@@ -5,7 +5,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import pro150.intelligenius.diaryapp.model.Profile;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.security.Principal;
@@ -20,13 +23,16 @@ public class ProfileRestController {
     private ProfileJpaRepository profileJpaRepository;
 
     @RequestMapping(path = "/create-profile", method = RequestMethod.POST)
-    public void createProfile(@ModelAttribute("profile") Profile profile, HttpServletResponse response) throws IOException {
+    public void createProfile(@ModelAttribute("profile") Profile profile, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        profile.setUsername(profile.getUsername().toLowerCase());
         profileJpaRepository.save(profile);
 
+        HttpSession session = request.getSession();
+        session.setAttribute("username", profile.getUsername());
+        session.setAttribute("name", profile.getName());
+        session.setAttribute("entries", profile.getEntries());
+
         response.sendRedirect("/home");
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("home");
-//        return modelAndView;
     }
 
     @RequestMapping(path = "/{name}", method = RequestMethod.GET)
@@ -39,10 +45,8 @@ public class ProfileRestController {
     }
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
-    public ModelAndView createProfile() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("createProfile");
-        return modelAndView;
+    public void createProfile(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("../createProfile.jsp").forward(request, response);
     }
 
 

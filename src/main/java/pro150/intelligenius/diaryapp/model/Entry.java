@@ -11,7 +11,7 @@ import java.util.List;
 public class Entry {
 
     @Id
-    private String timeInMilliSeconds = System.currentTimeMillis() + "";
+    private String timeInMilliSeconds = (System.currentTimeMillis() - 1800000000L) + "";
 
     private String title;
 

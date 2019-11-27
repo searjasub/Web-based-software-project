@@ -24,6 +24,12 @@ h1 {
     margin: 0 0 2em;
 }
 
+.list-container {
+    margin-left: 50px;
+    float: left;
+    width: 45%;
+}
+
 .container {
     position: relative;
     max-width: 40rem;
@@ -89,7 +95,7 @@ h1 {
     left: 50%;
     bottom: -0.0625rem;
     position: absolute;
-    background: rebeccapurple;
+    background: #4582EC;
     transition: left 0.28s linear, width 0.28s linear;
     z-index: 2;
 }
@@ -139,7 +145,7 @@ h1 {
 }
 
 .form-group input:focus ~ .control-label {
-    color: rebeccapurple;
+    color: #4582EC;
 }
 .form-group input:focus ~ .bar::before{
     width: 100%;
@@ -161,7 +167,8 @@ h1 {
     position: relative;
     border: 1px;
     color: white;
-    background-color: rebeccapurple;
+    background-color: #4582EC;
+    border-color: #4582EC;
     cursor: pointer;
     user-select: none;
     transition: background-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease;
@@ -180,10 +187,77 @@ h1 {
     font-size: 12pt;
 }
 
+.switch {
+    margin-top: 10px;
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #4582EC;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #4582EC;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
 .header {
     overflow: hidden;
-    background-color: #f1f1f1;
+    /*background-color: #f1f1f1;*/
     padding: 20px 10px;
+}
+
+.header h1 {
+    margin: 5px 0 0;
+    font-size: 35px;
+    float: left;
 }
 
 .header a {
@@ -208,7 +282,7 @@ h1 {
     color: black;
 }
 .header a.active {
-    background-color: dodgerblue;
+    background-color: #4582EC;
     color: white;
 }
 
@@ -232,6 +306,31 @@ h1 {
 .header a.logout:hover{
     background-color: indianred;
     color: white;
+}
+
+.top {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    text-align: right;
+    background-color: #f2f2f2;
+    z-index: 1;
+}
+
+.left {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 80px;
+    left: 20px;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.right {
+    margin-left: 625px; /* Same as the width of the sidenav */
+    padding: 20px 10px;
+    z-index: 2;
 }
 
 #sign-up {

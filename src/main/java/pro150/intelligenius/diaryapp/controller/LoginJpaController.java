@@ -27,9 +27,8 @@ public class LoginJpaController {
 
     @RequestMapping(path = "", method = RequestMethod.GET)
     public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("login");
-//        return modelAndView;
+        request.getSession().removeAttribute("username");
+        request.getSession().removeAttribute("name");
 
         request.getRequestDispatcher("login.jsp").forward(request, response);
     }
@@ -37,12 +36,13 @@ public class LoginJpaController {
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public void login(@ModelAttribute("profile") Profile profile, HttpServletRequest request,
                       HttpServletResponse response) throws IOException {
-        Profile realProfile = profileJpaRepository.findById(profile.getUsername()).orElse(null);
+        Profile realProfile = profileJpaRepository.findById(profile.getUsername().toLowerCase()).orElse(null);
 
         HttpSession session = request.getSession();
         if(realProfile != null && profile.getPassword().equals(realProfile.getPassword())) {
             System.out.println(realProfile.getEntries());
             session.setAttribute("username", realProfile.getUsername());
+            session.setAttribute("name", realProfile.getName());
             session.setAttribute("entries", realProfile.getEntries());
             response.sendRedirect("/home");
         } else {
@@ -52,9 +52,6 @@ public class LoginJpaController {
 
     @RequestMapping(path = "/home", method = RequestMethod.GET)
     public void home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("home");
-//        return modelAndView;
         HttpSession session = request.getSession();
         String username = (String) session.getAttribute("username");
 
