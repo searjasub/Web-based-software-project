@@ -40,15 +40,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http)  {
         try {
             http.authorizeRequests()
-//                    .antMatchers("/**").permitAll()
-//                    .antMatchers(HttpMethod.GET, "/profiles/").permitAll()
-                    .antMatchers(HttpMethod.GET, "/").permitAll()
+                    .antMatchers("/**").permitAll()
+                    .antMatchers("/home").hasAuthority("User")
+                    .antMatchers(HttpMethod.GET, "/profiles/").permitAll()
                     .antMatchers(HttpMethod.POST, "/profiles/create-profile").permitAll()
-//                    .antMatchers(HttpMethod.GET, "/users/**").permitAll()
+                    .antMatchers(HttpMethod.GET, "/users/**").permitAll()
 //                    .antMatchers(HttpMethod.POST, "/courses").hasAnyAuthority("Faculty")
                     .anyRequest().authenticated()
-                    .and()
-                    .httpBasic()
+                    .and().httpBasic()
                     .and().csrf().disable()
                     .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         } catch (Exception e) {

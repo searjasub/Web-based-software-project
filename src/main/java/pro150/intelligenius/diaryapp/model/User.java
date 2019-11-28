@@ -26,11 +26,8 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private boolean active = true;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     private List<String> rawAuthorities = new ArrayList<>();
-
-    @ElementCollection
-    private List<Entry> entries = new ArrayList<>();
 
     public User() {
         rawAuthorities.add("User");
@@ -90,27 +87,10 @@ public class User implements UserDetails {
         return this.active;
     }
 
-    public void setEntries(List<Entry> entries) {
-        this.entries = entries;
-    }
-
-    public List<Entry> getEntries() {
-        return entries;
-    }
-
-    public void addToEntryList(Entry e){
-        this.entries.add(e);
-    }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.getRawAuthorities().stream()
-                .map(raw -> new GrantedAuthority() {
-                    @Override
-                    public String getAuthority() {
-                        return raw;
-                    }
-                })
+                .map(raw -> (GrantedAuthority) () -> raw)
                 .collect(Collectors.toList());
     }
 
