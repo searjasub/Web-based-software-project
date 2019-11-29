@@ -95,7 +95,7 @@ h1 {
     left: 50%;
     bottom: -0.0625rem;
     position: absolute;
-    background: #4582EC;
+    background: #007bff;
     transition: left 0.28s linear, width 0.28s linear;
     z-index: 2;
 }
@@ -145,7 +145,7 @@ h1 {
 }
 
 .form-group input:focus ~ .control-label {
-    color: #4582EC;
+    color: #007bff;
 }
 .form-group input:focus ~ .bar::before{
     width: 100%;
@@ -167,8 +167,8 @@ h1 {
     position: relative;
     border: 1px;
     color: white;
-    background-color: #4582EC;
-    border-color: #4582EC;
+    background-color: #007bff;
+    border-color: #007bff;
     cursor: pointer;
     user-select: none;
     transition: background-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease;
@@ -226,11 +226,11 @@ h1 {
 }
 
 input:checked + .slider {
-    background-color: #4582EC;
+    background-color: #007bff;
 }
 
 input:focus + .slider {
-    box-shadow: 0 0 1px #4582EC;
+    box-shadow: 0 0 1px #007bff;
 }
 
 input:checked + .slider:before {
@@ -282,7 +282,7 @@ input:checked + .slider:before {
     color: black;
 }
 .header a.active {
-    background-color: #4582EC;
+    background-color: #007bff;
     color: white;
 }
 
