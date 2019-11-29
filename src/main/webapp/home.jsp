@@ -10,15 +10,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link href='../resources/calendar/packages/core/main.css' rel='stylesheet'/>
-    <link href='../resources/calendar/packages/daygrid/main.css' rel='stylesheet'/>
-    <link href='../resources/calendar/packages/timegrid/main.css' rel='stylesheet'/>
-    <link href='../resources/calendar/packages/list/main.css' rel='stylesheet'/>
-    <link href='../resources/calendar/packages/bootstrap/main.css' rel='stylesheet'/>
+    <link href='resources/calendar/packages/core/main.css' rel='stylesheet'/>
+    <link href='resources/calendar/packages/daygrid/main.css' rel='stylesheet'/>
+    <link href='resources/calendar/packages/timegrid/main.css' rel='stylesheet'/>
+    <link href='resources/calendar/packages/list/main.css' rel='stylesheet'/>
+    <link href='resources/calendar/packages/bootstrap/main.css' rel='stylesheet'/>
     <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
-<%--        <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet' />--%>
-    <link href='https://bootswatch.com/4/litera/bootstrap.min.css' rel='stylesheet'/>
-    <link rel="stylesheet" type="text/css" href="../resources/css/style.css"/>
+<%--    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet' />--%>
+<%--    <link href='https://bootswatch.com/4/litera/bootstrap.min.css' rel='stylesheet'/>--%>
+    <link rel="stylesheet" type="text/css" href="resources/css/myCalendar.css"/>
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css"/>
 
     <script src='../resources/calendar/packages/core/main.js'></script>
     <script src='../resources/calendar/packages/interaction/main.js'></script>
@@ -86,7 +87,7 @@
             var list = document.getElementById('entry-list');
             list.innerHTML = "";
 
-            document.getElementById('displaying-dates').innerText = 'Displaing: All Posts';
+            document.getElementById('displaying-dates').innerText = 'Displaying: All Posts';
 
             if(entries.length > 0) {
                 entries.forEach(function (entry) {
@@ -180,6 +181,7 @@
 
         });
             calendar.render();
+            updateAllEntries();
 
         });
 
@@ -213,34 +215,16 @@
 
 <div class="left">
     <div id='calendar'></div>
-    <div style="display: inline-block">
-        <p>Newest Post First</p>
-        <label class="switch">
-            <input type="checkbox" onclick="reverseEntries()" checked>
-            <span class="slider round"></span>
-        </label>
-        <div class="button-container">
-            <input type="button" class="button" onclick="showAllEntries()" value="Show All"/>
-        </div>
-        <p id="displaying-dates">Displaying: All Posts</p>
+    <p>Show Newest Post First</p>
+    <label class="switch">
+        <input type="checkbox" onclick="reverseEntries()" checked>
+        <span class="slider round"></span>
+    </label>
+    <div class="button-container">
+        <input type="button" class="button" onclick="showAllEntries()" value="Show All"/>
     </div>
+    <p id="displaying-dates"></p>
 </div>
-</div>
-<div id="entry-list" class="list-container right" style="float: left;">
-    <%
-        if(entries.size() > 0) {
-            for(Entry entry : entries) {
-                Date timeStamp = new Date(Long.parseLong(entry.getTimeInMilliSeconds()));
-                SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy hh:mm aa");
-                String formatted = formatter.format(timeStamp);%>
-        <div class="container">
-            <p><strong><%=entry.getTitle()%></strong> - <%=formatted%></p>
-            <p><%=entry.getContent()%></p>
-        </div>
-        <% }
-        } else { %>
-        <div class="container"><p><strong>You don't have any posts.</strong></p></div>
-        <%}%>
-
+<div id="entry-list" class="list-container right"></div>
 </body>
 </html>
