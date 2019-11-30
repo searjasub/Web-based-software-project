@@ -290,6 +290,10 @@ input:checked + .slider:before {
     float: right;
 }
 
+.current-weather-display{
+    padding-right: 7%;
+}
+
 .error-message {
     color: red;
     padding: 1rem;

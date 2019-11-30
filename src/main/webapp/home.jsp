@@ -27,6 +27,9 @@
     <script src='../resources/calendar/packages/timegrid/main.js'></script>
     <script src='../resources/calendar/packages/list/main.js'></script>
     <script src='../resources/calendar/packages/bootstrap/main.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src='../resources/weatherManager.js'></script>
 
     <title>Home</title>
     <script>
@@ -204,13 +207,21 @@
 </head>
 <body>
 <div class="header top">
+    <span>
     <h1>Welcome to Your Diary, <%=name%></h1>
-    <div class="header-right">
+    </span>
+    <span class="current-weather-display">
+        <span>Today's Weather: </span>
+        <span><img id="icon0"/></span>
+        <span id="weather0"></span>
+        <span id='temp0'></span>
+    </span>
+    <span class="header-right">
         <a class="active" href="/home">Home</a>
         <a href="/entries/addEntry">Create Post</a>
         <a href="/profiles/edit">Edit Personal Settings</a>
         <a href="/">Logout</a>
-    </div>
+    </span>
 </div>
 
 <div class="left">
