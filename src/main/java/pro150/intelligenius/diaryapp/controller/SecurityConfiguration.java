@@ -41,13 +41,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         try {
             http.authorizeRequests()
                     .antMatchers("/**").permitAll()
+                    .antMatchers("/home").hasAuthority("User")
                     .antMatchers(HttpMethod.GET, "/profiles/").permitAll()
                     .antMatchers(HttpMethod.POST, "/profiles/create-profile").permitAll()
                     .antMatchers(HttpMethod.GET, "/users/**").permitAll()
 //                    .antMatchers(HttpMethod.POST, "/courses").hasAnyAuthority("Faculty")
                     .anyRequest().authenticated()
-                    .and()
-                    .httpBasic()
+                    .and().httpBasic()
                     .and().csrf().disable()
                     .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         } catch (Exception e) {

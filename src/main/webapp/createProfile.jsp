@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../views/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css"/>
     <title>Create Profile</title>
 </head>
 <body>

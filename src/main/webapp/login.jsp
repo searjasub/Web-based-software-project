@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../views/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css"/>
     <title>Login to your Diary</title>
 </head>
 <body>
@@ -10,7 +10,7 @@
 <div class="container">
     <h1>Welcome to your diary</h1>
     <%--@elvariable id="profile" type=""--%>
-    <form:form method="post" action="/home" modelAttribute="profile">
+    <form:form method="post" action="/login" modelAttribute="profile">
         <div class="form-group">
             <input type="text" required="required" id="username" autocomplete="off" name="username"/>
             <label for="username" class="control-label">Username</label><i class="bar"></i>

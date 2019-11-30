@@ -1,21 +1,18 @@
 package pro150.intelligenius.diaryapp.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "profile")
-public class Profile extends User{
+public class Profile extends User {
 
     private String name;
 
     private String dateOfBirth;
 
-    @ManyToMany(mappedBy = "profileOwner")
-    @JsonIgnore
+    @OneToMany(mappedBy = "profileOwner")
     private List<Entry> entries = new ArrayList<>();
 
     public Profile() {
