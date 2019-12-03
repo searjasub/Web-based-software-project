@@ -186,6 +186,27 @@
             calendar.render();
             updateAllEntries();
 
+            (function () {
+                function checkTime(i) {
+                    return (i < 10) ? "0" + i : i;
+                }
+
+                function startTime() {
+                    var today = new Date(),
+                        h = today.getHours() % 12 == 0 ? 12 : today.getHours() % 12,
+                        m = checkTime(today.getMinutes());
+                    timeText = document.getElementById('time');
+                    time = timeText.innerText.split(':');
+                    if(m != time[1]) {
+                        timeText.innerText = h + ":" + m;
+                    }
+                    t = setTimeout(function () {
+                        startTime()
+                    }, 500);
+                }
+                startTime();
+            })();
+
         });
 
     </script>
@@ -209,6 +230,8 @@
 <div class="header top">
     <span>
     <h1>Welcome to Your Diary, <%=name%></h1>
+    </span>
+    <span id="time">
     </span>
     <span class="current-weather-display">
         <span>Today's Weather: </span>

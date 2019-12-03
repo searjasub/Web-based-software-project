@@ -11,14 +11,12 @@
     <%--@elvariable id="entry" type=""--%>
     <form:form action="/entries/addEntry" method="POST" modelAttribute="entry">
         <div class="form-group">
-            <input id="entryTitle" type="text" name="title" autocomplete="off">
-            <label for="entryTitle" class="control-label">Title</label>
-            <i class="bar"></i>
+            <input id="entryTitle" type="text" required  autocomplete="off" name="entryTitle">
+            <label for="entryTitle" class="control-label">Title</label><i class="bar"></i>
         </div>
         <div class="form-group">
-            <input id="entryBody" type="text" name="content" autocomplete="off">
-            <label for="entryBody" class="control-label">What are you feeling today?</label>
-            <i class="bar"></i>
+            <input id="entryBody" required type="text" name="content" autocomplete="off">
+            <label for="entryBody" class="control-label">What are you feeling today?</label><i class="bar"></i>
         </div>
         <div class="button-container" id="button-container">
             <input class="button" id="entrySubmit" type="submit" name="submit" value="Make Diary!">
