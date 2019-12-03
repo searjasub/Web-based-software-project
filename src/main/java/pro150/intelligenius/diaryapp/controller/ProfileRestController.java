@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/profile")
+@RequestMapping("/profiles")
 public class ProfileRestController {
 
     @Autowired
@@ -50,34 +50,28 @@ public class ProfileRestController {
     }
 
 
-    @RequestMapping(path = "/edit", method = RequestMethod.POST)
-    public ModelAndView updateProfile(Principal principal, @ModelAttribute("update") Profile updates) throws NoSuchFieldException, IllegalAccessException {
-
-        Profile profile = profileJpaRepository.findById(principal.getName()).orElse(null);
-        assert profile != null;
-
-        profile.setName(updates.getName());
-        profile.setDateOfBirth(updates.getDateOfBirth());
-//        Class<?> pType = profile.getClass();
-//
-//        for (String propertyName : updates.keySet()){
-//            Field field = pType.getDeclaredField(propertyName);
-//            field.setAccessible(true);
-//            field.set(profile, updates.get(propertyName));
-//            field.setAccessible(false);
-//        }
-
-        profileJpaRepository.save(profile);
-
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("profile", profile);
-        modelAndView.setViewName("userSettingsSaved");
-        return  modelAndView;
+    @RequestMapping(path = "/edit", method = RequestMethod.PATCH)
+    public void updateProfile(@ModelAttribute("profile") Profile profile,HttpServletRequest request,HttpServletResponse response) throws NoSuchFieldException, IllegalAccessException, IOException {
+        HttpSession s = request.getSession();
+        Profile p = profileJpaRepository.findById((String) s.getAttribute("username")).orElse(null);
+        String newName = profile.getName();
+        String newBirthDate = profile.getDateOfBirth();
+        if (p != null) {
+            p.setName(newName);
+            p.setDateOfBirth(newBirthDate);
+            profileJpaRepository.save(p);
+        }
+        response.sendRedirect("/home");
     }
 
+
     @RequestMapping(path = "/edit", method = RequestMethod.GET)
-    public void editProfile(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException {
-        request.getRequestDispatcher("../userSettings.jsp").forward(request, response);
+    public void editProfile(HttpServletRequest request,HttpServletResponse response) throws IOException {
+        try {
+            request.getRequestDispatcher("../userSettings.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        }
     }
 
     @RequestMapping(name = "/getProfiles", method = RequestMethod.GET)
@@ -86,3 +80,4 @@ public class ProfileRestController {
     }
 
 }
+
