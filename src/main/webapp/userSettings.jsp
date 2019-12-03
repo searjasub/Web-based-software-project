@@ -2,13 +2,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css"/>
     <meta charset="UTF-8">
-    <title>Hello ${name}!</title>
+    <title>Edit ${name}</title>
 </head>
 <body>
 <div class="container">
     <h1>Edit your user settings</h1>
-    <form:form method="post" action="/profiles/edit/${name}">
+    <form:form method="patch" action="/profiles/edit">
         <div class="form-group">
             <input type="text" required="required" id="name" autocomplete="off" name="name"/>
             <label for="name" class="control-label">Name</label><i class="bar"></i>
