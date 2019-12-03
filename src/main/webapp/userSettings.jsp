@@ -9,7 +9,7 @@
 <body>
 <div class="container">
     <h1>Edit your user settings</h1>
-    <form:form method="patch" action="/profiles/edit">
+    <form:form method="patch" action="/profile/edit">
         <div class="form-group">
             <input type="text" required="required" id="name" autocomplete="off" name="name"/>
             <label for="name" class="control-label">Name</label><i class="bar"></i>
