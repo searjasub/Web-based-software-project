@@ -256,7 +256,7 @@
     <span class="header-right">
         <a class="active" href="/home">Home</a>
         <a href="/entries/addEntry">Create Post</a>
-        <a href="/profile/edit">Edit Personal Settings</a>
+        <a href="/profiles/edit">Edit Personal Settings</a>
         <a href="/">Logout</a>
     </span>
 </div>
