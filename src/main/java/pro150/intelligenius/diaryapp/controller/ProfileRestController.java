@@ -56,9 +56,13 @@ public class ProfileRestController {
         Profile p = profileJpaRepository.findById((String) s.getAttribute("username")).orElse(null);
         String newName = profile.getName();
         String newBirthDate = profile.getDateOfBirth();
+        String city = profile.getCity();
+        String state = profile.getState();
         if (p != null) {
             p.setName(newName);
             p.setDateOfBirth(newBirthDate);
+            p.setCity(city);
+            p.setState(state);
             profileJpaRepository.save(p);
         }
         response.sendRedirect("/home");

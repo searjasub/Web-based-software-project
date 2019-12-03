@@ -58,6 +58,8 @@ public class LoginJpaController {
         if(username != null) {
             Profile profile = profileJpaRepository.findById(username).orElse(null);
             session.setAttribute("entries", profile.getEntries());
+            session.setAttribute("name", profile.getName());
+            session.setAttribute("city", profile.getCity());
             request.getRequestDispatcher("home.jsp").forward(request, response);
         } else {
             response.sendRedirect("");

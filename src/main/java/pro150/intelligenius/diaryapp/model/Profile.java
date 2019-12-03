@@ -12,6 +12,10 @@ public class Profile extends User {
 
     private String dateOfBirth;
 
+    private String city;
+
+    private String state;
+
     @OneToMany(mappedBy = "profileOwner")
     private List<Entry> entries = new ArrayList<>();
 
@@ -37,6 +41,22 @@ public class Profile extends User {
 
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public List<Entry> getEntries() {
