@@ -24,11 +24,14 @@ public class User implements UserDetails {
     private String password;
 
     @Column(nullable = false)
-    private boolean active;
+    private boolean active = true;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     private List<String> rawAuthorities = new ArrayList<>();
 
+    public User() {
+        rawAuthorities.add("User");
+    }
 
     public String getUsername() {
         return username;
@@ -87,12 +90,7 @@ public class User implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.getRawAuthorities().stream()
-                .map(raw -> new GrantedAuthority() {
-                    @Override
-                    public String getAuthority() {
-                        return raw;
-                    }
-                })
+                .map(raw -> (GrantedAuthority) () -> raw)
                 .collect(Collectors.toList());
     }
 
