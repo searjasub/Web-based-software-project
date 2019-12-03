@@ -8,7 +8,7 @@
 <body>
 <div class="container">
     <h1>Edit your user settings</h1>
-    <form:form method="post" action="/profiles/edit/${name}" modelAttribute="update">
+    <form:form method="post" action="/profiles/edit/${name}">
         <div class="form-group">
             <input type="text" required="required" id="name" autocomplete="off" name="name"/>
             <label for="name" class="control-label">Name</label><i class="bar"></i>

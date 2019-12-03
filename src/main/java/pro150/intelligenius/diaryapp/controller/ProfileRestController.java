@@ -76,12 +76,12 @@ public class ProfileRestController {
     }
 
     @RequestMapping(path = "/edit", method = RequestMethod.GET)
-    public ModelAndView displayProfileEdit(Principal principal){
-        Profile current = profileJpaRepository.findById(principal.getName()).orElse(null);
-        ModelAndView mav = new ModelAndView();
-        mav.addObject("oldName", current.getName());
-        mav.setViewName("userSettings");
-        return mav;
+    public void editProfile(HttpServletRequest request,HttpServletResponse response) throws IOException {
+        try {
+            request.getRequestDispatcher("userSettings.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        }
     }
 
     @RequestMapping(name = "/getProfiles", method = RequestMethod.GET)
