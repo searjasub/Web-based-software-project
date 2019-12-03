@@ -369,6 +369,14 @@ input:checked + .slider:before {
     height: 50px;
 }
 
+#time {
+    margin-right: 10px;
+}
+
+#temp0 {
+    margin-right: 200px;
+}
+
 #sign-up {
     width: 170px;
 }

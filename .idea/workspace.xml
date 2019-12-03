@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1971f9a9-8b8d-427d-a4df-1d248442cb03" name="Default Changelist" comment="" />
+    <list default="true" id="1971f9a9-8b8d-427d-a4df-1d248442cb03" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/LoginJpaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/LoginJpaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/ProfileRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/ProfileRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/model/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/model/Profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/createProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/createProfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/userSettings.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userSettings.jsp" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +249,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575340839636</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="fixed entry">
+      <created>1575340906412</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1575340906412</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -5,6 +5,7 @@
 <%@ page import="java.util.*" %>
 <% List<Entry> entries = (List<Entry>) session.getAttribute("entries");
     String name = (String) session.getAttribute("name");
+    String city = (String) session.getAttribute("city");
     entries.sort(Comparator.comparing(Entry::getTimeInMilliSeconds).reversed());
     session.removeAttribute("entries");%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -29,10 +30,21 @@
     <script src='../resources/calendar/packages/bootstrap/main.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src='../resources/weatherManager.js'></script>
+<%--    <script src='../resources/weatherManager.js'></script>--%>
 
     <title>Home</title>
     <script>
+        console.log('<%=city%>');
+        $(document).ready(function(){
+            var url='https://api.openweathermap.org/data/2.5/forecast?q=<%=city%>,us&units=imperial&appid=f7ea971141408669dea697373e8214ba';
+            $.getJSON(url, function(data){
+                console.log(data);
+                $('#icon0').attr('src','http://openweathermap.org/img/w/' + data.list[0].weather[0].icon + '.png');
+                $('#weather0').html(data.list[0].weather[0].description);
+                $('#temp0').html(data.list[0].main.temp + '&deg; F');
+            });
+        });
+
         var start, end;
 
         var entries = [<% for (Entry entry : entries) {
@@ -245,12 +257,10 @@
     <span>
     <h1 id="greeting"></h1>
     </span>
-    <span id="time">
+    <span><strong id="time"></strong>
     </span>
     <span class="current-weather-display">
-        <span>Today's Weather: </span>
         <span><img id="icon0"/></span>
-        <span id="weather0"></span>
         <span id='temp0'></span>
     </span>
     <span class="header-right">

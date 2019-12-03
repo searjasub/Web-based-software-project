@@ -26,6 +26,14 @@
             <input type="text" required="required" id="dateOfBirth" autocomplete="off" name="dateOfBirth"/>
             <label for="dateOfBirth" class="control-label">Date of Birth</label><i class="bar"></i>
         </div>
+        <div class="form-group">
+            <input type="text" required="required" id="city" autocomplete="off" name="city"/>
+            <label for="city" class="control-label">City</label><i class="bar"></i>
+        </div>
+        <div class="form-group">
+            <input type="text" required="required" id="state" autocomplete="off" name="state"/>
+            <label for="state" class="control-label">State</label><i class="bar"></i>
+        </div>
         <div class="button-container" id="button-container">
             <div class="validation" id="buttonVal"></div>
             <input class="button" type="submit" value="Submit" id="button"/>
