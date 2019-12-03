@@ -30,6 +30,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src='../resources/weatherManager.js'></script>
+    <script src='../resources/newsManager.js'></script>
 
     <title>Home</title>
     <script>
@@ -278,11 +279,26 @@
             </div>
         </div>
 </div>
+
 <div>
     <div class="showing">
         <p id="displaying-dates"></p>
     </div>
     <div id="entry-list" class="list-container right"></div>
+</div>
+<div class="header-right news">
+        <div class="article" id="news0tit"></div>
+        <div class="article" id="news0url"></div>
+        <div class="article" id="news1tit"></div>
+        <div class="article" id="news1url"></div>
+        <div class="article" id="news2tit"></div>
+        <div class="article" id="news2url"></div>
+        <div class="article" id="news3tit"></div>
+        <div class="article" id="news3url"></div>
+        <div class="article" id="news4tit"></div>
+        <div class="article" id="news4url"></div>
+        <div class="article" id="news5tit"></div>
+        <div class="article" id="news5url"></div>
 </div>
 </body>
 </html>
