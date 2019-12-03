@@ -290,7 +290,7 @@
         <div class="article" id="news0tit"></div>
         <div class="article" id="news0url"></div>
         <div class="article" id="news1tit"></div>
-        <div class="article" id="news1url"></div>
+    <div class="article" id="news1url"></div>
         <div class="article" id="news2tit"></div>
         <div class="article" id="news2url"></div>
         <div class="article" id="news3tit"></div>
