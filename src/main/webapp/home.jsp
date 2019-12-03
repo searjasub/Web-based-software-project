@@ -199,6 +199,19 @@
                     time = timeText.innerText.split(':');
                     if(m != time[1]) {
                         timeText.innerText = h + ":" + m;
+                        if(h != time[0]) {
+                            var hour = today.getHours();
+                            var greeting = document.getElementById("greeting");
+                            if(hour >= 5 && hour <= 12) {
+                                greeting.innerText = "Good Morning, <%=name%>";
+                            } else if(hour >= 13 && hour <= 17) {
+                                greeting.innerText = "Good Afternoon, <%=name%>";
+                            } else if(hour >= 18 && hour <= 21) {
+                                greeting.innerText = "Good Evening, <%=name%>";
+                            } else {
+                                greeting.innerText = "Good Night, <%=name%>";
+                            }
+                        }
                     }
                     t = setTimeout(function () {
                         startTime()
@@ -222,6 +235,7 @@
         #calendar {
             max-width: 600px;
             margin: 0 auto;
+            margin-bottom: 10px;
         }
 
     </style>
@@ -229,7 +243,7 @@
 <body>
 <div class="header top">
     <span>
-    <h1>Welcome to Your Diary, <%=name%></h1>
+    <h1 id="greeting"></h1>
     </span>
     <span id="time">
     </span>
@@ -242,23 +256,33 @@
     <span class="header-right">
         <a class="active" href="/home">Home</a>
         <a href="/entries/addEntry">Create Post</a>
-        <a href="/profiles/edit">Edit Personal Settings</a>
+        <a href="/profile/edit">Edit Personal Settings</a>
         <a href="/">Logout</a>
     </span>
 </div>
 
 <div class="left">
     <div id='calendar'></div>
-    <p>Show Newest Post First</p>
-    <label class="switch">
-        <input type="checkbox" onclick="reverseEntries()" checked>
-        <span class="slider round"></span>
-    </label>
-    <div class="button-container">
-        <input type="button" class="button" onclick="showAllEntries()" value="Show All"/>
+    <div class="option-container">
+        <div class="post-display">
+            <label id="instructions" for="postSort">Show Newest Post First</label>
+            <label class="switch">
+                <input id="postSort" type="checkbox" onclick="reverseEntries()" checked>
+                <span class="slider round"></span>
+            </label>
+        </div>
     </div>
-    <p id="displaying-dates"></p>
+        <div class="post-display">
+            <div class="button-container">
+                <input id="allPosts" type="button" class="button" onclick="showAllEntries()" value="Show All Posts"/>
+            </div>
+        </div>
 </div>
-<div id="entry-list" class="list-container right"></div>
+<div>
+    <div class="showing">
+        <p id="displaying-dates"></p>
+    </div>
+    <div id="entry-list" class="list-container right"></div>
+</div>
 </body>
 </html>
