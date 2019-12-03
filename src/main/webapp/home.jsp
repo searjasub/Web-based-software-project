@@ -262,7 +262,7 @@
     </span>
     <span class="current-weather-display">
         <span><img id="icon0"/></span>
-        <span id='temp0'></span>
+        <span id='temp0'>           </span>
     </span>
     <span class="header-right">
         <a class="active" href="/home">Home</a>
@@ -296,19 +296,37 @@
     </div>
     <div id="entry-list" class="list-container right"></div>
 </div>
-<div class="header-right news">
-        <div class="article" id="news0tit"></div>
-        <div class="article" id="news0url"></div>
-        <div class="article" id="news1tit"></div>
-    <div class="article" id="news1url"></div>
-        <div class="article" id="news2tit"></div>
-        <div class="article" id="news2url"></div>
-        <div class="article" id="news3tit"></div>
-        <div class="article" id="news3url"></div>
-        <div class="article" id="news4tit"></div>
-        <div class="article" id="news4url"></div>
-        <div class="article" id="news5tit"></div>
-        <div class="article" id="news5url"></div>
+<div class="news">
+    <h3>News</h3>
+    <a id="news0" target="_blank">
+        <div class="news-container">
+            <div class="article" id="news0tit"></div>
+        </div>
+    </a>
+    <a id="news1" target="_blank">
+        <div class="news-container">
+            <div class="article" id="news1tit"></div>
+        </div>
+    </a>
+    <a id="news2" target="_blank">
+        <div class="news-container">
+            <div class="article" id="news2tit"></div>
+        </div>
+    </a>
+    <a id="news3" target="_blank">
+        <div class="news-container">
+            <div class="article" id="news3tit"></div>
+        </div>
+    </a>
+    <a id="news4" target="_blank">
+        <div class="news-container">
+            <div class="article" id="news4tit"></div>
+        </div>
+    </a>
+<%--    <div class="news-container">--%>
+<%--        <div class="article" id="news5tit"></div>--%>
+<%--        <div class="article" id="news5url"></div>--%>
+<%--    </div>--%>
 </div>
 </body>
 </html>
