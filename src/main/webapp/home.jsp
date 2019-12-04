@@ -216,7 +216,6 @@
                     },
                     <%}%>
                 ]
-
         });
             calendar.render();
             updateAllEntries();
@@ -233,7 +232,7 @@
                         ampm = today.getHours() >= 12 ? 'PM' : 'AM';
                     timeText = document.getElementById('time');
                     time = timeText.innerText.split(':');
-                    if(m != time[1]) {
+                    if(m + " " + ampm != time[1]) {
                         timeText.innerText = h + ":" + m + " " + ampm;
                         if(h != time[0]) {
                             var rawBirthday = '<%=birthday%>'.split('-');
@@ -312,11 +311,11 @@
             </label>
         </div>
     </div>
-        <div class="post-display">
-            <div class="button-container">
-                <input id="allPosts" type="button" class="button" onclick="showAllEntries()" value="Show All Posts"/>
-            </div>
+    <div class="post-display">
+        <div class="button-container">
+            <input id="allPosts" type="button" class="button" onclick="showAllEntries()" value="Show All Posts"/>
         </div>
+    </div>
 </div>
 
 <div>

@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import pro150.intelligenius.diaryapp.model.Profile;
 
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,13 +15,20 @@ import javax.servlet.http.HttpSession;
 import javax.validation.ConstraintViolationException;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.security.NoSuchAlgorithmException;
 import java.security.Principal;
-import java.util.List;
-import java.util.Map;
+import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
+import java.util.*;
 
 @RestController
 @RequestMapping("/profiles")
 public class ProfileRestController {
+
+    private static final String salt = "LaundrySauce";
+    private static final int ITERATIONS = 65536;
+    private static final int KEY_LENGTH = 512;
+    private static final String ALGORITHM = "PBKDF2WithHmacSHA512";
 
     @Autowired
     private ProfileJpaRepository profileJpaRepository;
@@ -33,13 +42,14 @@ public class ProfileRestController {
         if(p == null) {
             boolean wasError = false;
             profile.setUsername(username);
-            try {
+            String hashedPassword = hashPassword(profile.getPassword()).orElse(null);
+            profile.setPassword(hashedPassword);
+            if(hashedPassword != null) {
                 profileJpaRepository.save(profile);
-            } catch (Exception ex) {
-                wasError = true;
-                session.setAttribute("error", "Password must be at least 4 characters.");
-                response.sendRedirect("");
+            } else {
+                session.setAttribute("error", "There was an error.");
             }
+
 
             if(!wasError) {
                 session.setAttribute("username", profile.getUsername());
@@ -107,6 +117,28 @@ public class ProfileRestController {
 
         } catch (ServletException e) {
             e.printStackTrace();
+        }
+    }
+
+    private static Optional<String> hashPassword(String password) {
+
+        char[] chars = password.toCharArray();
+        byte[] bytes = salt.getBytes();
+
+        PBEKeySpec spec = new PBEKeySpec(chars, bytes, ITERATIONS, KEY_LENGTH);
+
+        Arrays.fill(chars, Character.MIN_VALUE);
+
+        try {
+            SecretKeyFactory fac = SecretKeyFactory.getInstance(ALGORITHM);
+            byte[] securePassword = fac.generateSecret(spec).getEncoded();
+            return Optional.of(Base64.getEncoder().encodeToString(securePassword));
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException ex) {
+            System.err.println("Exception encountered in hashPassword()");
+            return Optional.empty();
+
+        } finally {
+            spec.clearPassword();
         }
     }
 }

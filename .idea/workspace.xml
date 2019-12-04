@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="1971f9a9-8b8d-427d-a4df-1d248442cb03" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/createProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/createProfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/LoginJpaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/LoginJpaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/ProfileRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/ProfileRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/userSettings.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userSettings.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -111,7 +111,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="152863f8-044a-406e-b9d5-527d9bb82e3f" name="Default Changelist" comment="" />
+      <changelist id="1971f9a9-8b8d-427d-a4df-1d248442cb03" name="Default Changelist" comment="" />
       <created>1572915691350</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -132,6 +132,7 @@
       <workItem from="1575302046601" duration="2353000" />
       <workItem from="1575307030373" duration="1777000" />
       <workItem from="1575331928764" duration="7825000" />
+      <workItem from="1575473600783" duration="282000" />
     </task>
     <task id="LOCAL-00001" summary="added some test">
       <created>1572916330177</created>
@@ -280,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575421409285</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="more polished">
+      <created>1575424205449</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1575424205449</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,6 +339,7 @@
     <MESSAGE value="yes" />
     <MESSAGE value="news styling" />
     <MESSAGE value="polished" />
-    <option name="LAST_COMMIT_MESSAGE" value="polished" />
+    <MESSAGE value="more polished" />
+    <option name="LAST_COMMIT_MESSAGE" value="more polished" />
   </component>
 </project>
