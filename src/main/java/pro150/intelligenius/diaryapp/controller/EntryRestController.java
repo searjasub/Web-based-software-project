@@ -13,6 +13,7 @@ import pro150.intelligenius.diaryapp.model.User;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.security.Principal;
 import java.util.List;
@@ -29,44 +30,32 @@ public class EntryRestController {
 
     @RequestMapping(path = "/addEntry", method = RequestMethod.POST)
     public void createEntry(@ModelAttribute("entry") Entry entry, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        User u = userJpaRepository.findById(principal.getName()).orElse(null);
-//        assert u != null;
-//        ModelAndView mav = new ModelAndView();
-//        mav.setViewName("showEntries");
-//        userJpaRepository.save(u);
-//        //send to jpa that allows the user to create an entry
-//        entryJpaRepository.save(entry);
-//        return mav;
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute("username");
 
-        String username = (String) request.getSession().getAttribute("username");
-        Profile profile = profileJpaRepository.findById(username).orElse(null);
-        entry.setProfileOwner(profile);
-        entryJpaRepository.save(entry);
+        if(username != null) {
+            Profile profile = profileJpaRepository.findById(username).orElse(null);
+            entry.setProfileOwner(profile);
+            entryJpaRepository.save(entry);
+            response.sendRedirect("/home");
+        } else {
+            session.setAttribute("error", "You must login.");
+            response.sendRedirect("../");
+        }
 
-        response.sendRedirect("/home");
 
     }
 
-//    @RequestMapping(path = "", method = RequestMethod.GET)
-//    public ModelAndView getAllEntries(Principal principal) {
-//        User u = userJpaRepository.findById(principal.getName()).orElse(null);
-//        ModelAndView modelAndView = new ModelAndView();
-//        try{
-////            List<Entry> allEntries = u.getEntries();
-////            modelAndView.addObject("list", allEntries);
-//            modelAndView.setViewName("showEntries");
-//        }
-//        catch(NullPointerException npe) {
-//            modelAndView.setViewName("error");
-//        }
-//        return modelAndView;
-//    }
-
     @RequestMapping(path = "/addEntry", method = RequestMethod.GET)
     public void addEntry(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        ModelAndView mav = new ModelAndView();
-//        mav.setViewName("addDiary");
-//        return mav;
-        request.getRequestDispatcher("../addDiary.jsp").forward(request, response);
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute("username");
+
+        if(username != null) {
+            request.getRequestDispatcher("../addDiary.jsp").forward(request, response);
+        } else {
+            session.setAttribute("error", "You must login.");
+            response.sendRedirect("../");
+        }
     }
 }

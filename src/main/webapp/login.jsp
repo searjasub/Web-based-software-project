@@ -1,14 +1,22 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String error = (String) session.getAttribute("error");
+    session.removeAttribute("error");
+%>
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="../resources/css/style.css"/>
-    <title>Login to your Diary</title>
+    <title>Login</title>
 </head>
 <body>
 
 <div class="container">
-    <h1>Welcome to your diary</h1>
+    <h1>ProDiary</h1>
+    <%
+        if(error != null) { %>
+            <p class="error-message"><%=error%></p>
+        <%}%>
     <%--@elvariable id="profile" type=""--%>
     <form:form method="post" action="/login" modelAttribute="profile">
         <div class="form-group">

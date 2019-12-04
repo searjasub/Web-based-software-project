@@ -29,6 +29,8 @@ public class LoginJpaController {
     public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getSession().removeAttribute("username");
         request.getSession().removeAttribute("name");
+        request.getSession().removeAttribute("city");
+        request.getSession().removeAttribute("birthday");
 
         request.getRequestDispatcher("login.jsp").forward(request, response);
     }
@@ -40,12 +42,10 @@ public class LoginJpaController {
 
         HttpSession session = request.getSession();
         if(realProfile != null && profile.getPassword().equals(realProfile.getPassword())) {
-            System.out.println(realProfile.getEntries());
             session.setAttribute("username", realProfile.getUsername());
-            session.setAttribute("name", realProfile.getName());
-            session.setAttribute("entries", realProfile.getEntries());
             response.sendRedirect("/home");
         } else {
+            request.getSession().setAttribute("error", "Invalid username or password");
             response.sendRedirect("");
         }
     }
@@ -60,8 +60,10 @@ public class LoginJpaController {
             session.setAttribute("entries", profile.getEntries());
             session.setAttribute("name", profile.getName());
             session.setAttribute("city", profile.getCity());
+            session.setAttribute("birthday", profile.getDateOfBirth());
             request.getRequestDispatcher("home.jsp").forward(request, response);
         } else {
+            session.setAttribute("error", "You must login.");
             response.sendRedirect("");
         }
     }
