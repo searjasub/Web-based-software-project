@@ -25,7 +25,7 @@
     </span>
 </div>
 <div class="container form-container">
-    <h1>Edit your user settings</h1>
+    <h1>Edit Your Settings</h1>
     <form:form method="patch" action="/profiles/edit">
         <div class="form-group">
             <input type="text" id="name" autocomplete="off" name="name"/>

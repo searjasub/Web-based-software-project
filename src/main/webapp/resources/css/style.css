@@ -124,7 +124,12 @@ h1 {
     display: none;
 }
 
-
+.form-group input[type="date"]:focus ~ .control-label {
+    font-size: 0.8rem;
+    color: gray;
+    top: -1rem;
+    left: 0;
+}
 
 .form-group input:focus,
 .form-group input:valid,
