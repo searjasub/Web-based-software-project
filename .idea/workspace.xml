@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="152863f8-044a-406e-b9d5-527d9bb82e3f" name="Default Changelist" comment="fixed create entry jsp.">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="1971f9a9-8b8d-427d-a4df-1d248442cb03" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/newsManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/newsManager.js" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,11 +37,6 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
-  </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
-    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -78,6 +72,18 @@
       <recent name="D:\Neumont\PRO150\Web-based-software-project\src\main\webapp\WEB-INF\jsp" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="DiaryAppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="webapp" />
@@ -88,15 +94,13 @@
     </configuration>
   </component>
   <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand />
+          <select />
+        </treeState>
+      </serviceView>
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -104,7 +108,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="152863f8-044a-406e-b9d5-527d9bb82e3f" name="Default Changelist" comment="fixed create entry jsp." />
+      <changelist id="1971f9a9-8b8d-427d-a4df-1d248442cb03" name="Default Changelist" comment="" />
       <created>1572915691350</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -125,9 +129,7 @@
       <workItem from="1575302046601" duration="2353000" />
       <workItem from="1575307030373" duration="1777000" />
       <workItem from="1575331928764" duration="7825000" />
-      <workItem from="1575473600783" duration="282000" />
-      <workItem from="1575492627114" duration="817000" />
-      <workItem from="1575494006006" duration="598000" />
+      <workItem from="1575473600783" duration="2156000" />
     </task>
     <task id="LOCAL-00001" summary="added some test">
       <created>1572916330177</created>
@@ -283,7 +285,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575424205449</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="more polished">
+      <created>1575473898635</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1575473898635</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,19 +345,5 @@
     <MESSAGE value="polished" />
     <MESSAGE value="more polished" />
     <option name="LAST_COMMIT_MESSAGE" value="more polished" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="445" y="170" key="#Plugins" timestamp="1575493969841">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="445" y="170" key="#Plugins/0.0.1920.1040@0.0.1920.1040" timestamp="1575493969841" />
-    <state x="655" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1575492724088">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="655" y="342" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575492724088" />
-    <state x="516" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1575492796792">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="516" y="232" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1575492796792" />
   </component>
 </project>
