@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 import pro150.intelligenius.diaryapp.model.Profile;
 
 import javax.crypto.SecretKeyFactory;
@@ -17,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Arrays;
 import java.util.Base64;
@@ -37,58 +35,7 @@ public class LoginJpaController {
     @Autowired
     ProfileJpaRepository profileJpaRepository;
 
-    @RequestMapping(path = "", method = RequestMethod.GET)
-    public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getSession().removeAttribute("username");
-        request.getSession().removeAttribute("name");
-        request.getSession().removeAttribute("city");
-        request.getSession().removeAttribute("birthday");
-
-        request.getRequestDispatcher("login.jsp").forward(request, response);
-    }
-
-    @RequestMapping(path = "/login", method = RequestMethod.POST)
-    public void login(@ModelAttribute("profile") Profile profile, HttpServletRequest request,
-                      HttpServletResponse response) throws IOException {
-        Profile realProfile = profileJpaRepository.findById(profile.getUsername().toLowerCase()).orElse(null);
-
-        HttpSession session = request.getSession();
-
-        if(realProfile != null) {
-            boolean isCorrect = verifyPassword(profile.getPassword(), realProfile.getPassword());
-
-            if(isCorrect) {
-                session.setAttribute("username", realProfile.getUsername());
-                response.sendRedirect("/home");
-            } else {
-                request.getSession().setAttribute("error", "Invalid username or password");
-                response.sendRedirect("");
-            }
-        }  else {
-            request.getSession().setAttribute("error", "Invalid username or password");
-            response.sendRedirect("");
-        }
-    }
-
-    @RequestMapping(path = "/home", method = RequestMethod.GET)
-    public void home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        String username = (String) session.getAttribute("username");
-
-        if(username != null) {
-            Profile profile = profileJpaRepository.findById(username).orElse(null);
-            session.setAttribute("entries", profile.getEntries());
-            session.setAttribute("name", profile.getName());
-            session.setAttribute("city", profile.getCity());
-            session.setAttribute("birthday", profile.getDateOfBirth());
-            request.getRequestDispatcher("home.jsp").forward(request, response);
-        } else {
-            session.setAttribute("error", "You must login.");
-            response.sendRedirect("");
-        }
-    }
-
-    public static boolean verifyPassword (String password, String key) {
+    public static boolean verifyPassword(String password, String key) {
         Optional<String> optEncrypted = hashPassword(password);
         if (!optEncrypted.isPresent()) return false;
         return optEncrypted.get().equals(key);
@@ -112,6 +59,57 @@ public class LoginJpaController {
 
         } finally {
             spec.clearPassword();
+        }
+    }
+
+    @RequestMapping(path = "", method = RequestMethod.GET)
+    public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getSession().removeAttribute("username");
+        request.getSession().removeAttribute("name");
+        request.getSession().removeAttribute("city");
+        request.getSession().removeAttribute("birthday");
+
+        request.getRequestDispatcher("login.jsp").forward(request, response);
+    }
+
+    @RequestMapping(path = "/login", method = RequestMethod.POST)
+    public void login(@ModelAttribute("profile") Profile profile, HttpServletRequest request,
+                      HttpServletResponse response) throws IOException {
+        Profile realProfile = profileJpaRepository.findById(profile.getUsername().toLowerCase()).orElse(null);
+
+        HttpSession session = request.getSession();
+
+        if (realProfile != null) {
+            boolean isCorrect = verifyPassword(profile.getPassword(), realProfile.getPassword());
+
+            if (isCorrect) {
+                session.setAttribute("username", realProfile.getUsername());
+                response.sendRedirect("/home");
+            } else {
+                request.getSession().setAttribute("error", "Invalid username or password");
+                response.sendRedirect("");
+            }
+        } else {
+            request.getSession().setAttribute("error", "Invalid username or password");
+            response.sendRedirect("");
+        }
+    }
+
+    @RequestMapping(path = "/home", method = RequestMethod.GET)
+    public void home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute("username");
+
+        if (username != null) {
+            Profile profile = profileJpaRepository.findById(username).orElse(null);
+            session.setAttribute("entries", profile.getEntries());
+            session.setAttribute("name", profile.getName());
+            session.setAttribute("city", profile.getCity());
+            session.setAttribute("birthday", profile.getDateOfBirth());
+            request.getRequestDispatcher("home.jsp").forward(request, response);
+        } else {
+            session.setAttribute("error", "You must login.");
+            response.sendRedirect("");
         }
     }
 }

@@ -36,7 +36,7 @@ h1 {
     margin: 3rem auto;
     background: #fff;
     width: 100%;
-    padding: 3rem 5rem;
+    padding: 1.5rem 2rem;
     border-radius: 1px;
 }
 
@@ -427,4 +427,19 @@ input:checked + .slider:before {
 
 #sign-up {
     width: 170px;
+}
+
+.delete-btn-container {
+    overflow: hidden;
+}
+
+.delete-btn-container a {
+    float: right;
+    background-color: indianred;
+    color: white;
+    font-size: 12pt;
+    border-radius: 4px;
+    text-align: center;
+    padding: 5px 7px;
+    text-decoration: none;
 }

@@ -1,10 +1,8 @@
 package pro150.intelligenius.diaryapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.repository.query.Param;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import pro150.intelligenius.diaryapp.model.Entry;
 import pro150.intelligenius.diaryapp.model.Profile;
@@ -14,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.server.PathParam;
 import java.io.IOException;
 import java.security.Principal;
 import java.util.List;
@@ -57,5 +56,11 @@ public class EntryRestController {
             session.setAttribute("error", "You must login.");
             response.sendRedirect("../");
         }
+    }
+
+    @RequestMapping(path = "/delete/{id}", method = RequestMethod.GET)
+    public void deleteById(HttpServletResponse response, @PathVariable String id) throws IOException {
+        entryJpaRepository.deleteById(id);
+        response.sendRedirect("/home");
     }
 }

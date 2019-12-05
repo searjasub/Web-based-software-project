@@ -1,7 +1,5 @@
 <%@ page import="pro150.intelligenius.diaryapp.model.Entry" %>
-<%@ page import="pro150.intelligenius.diaryapp.model.Profile" %>
 <%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.util.stream.Collectors" %>
 <%@ page import="java.util.*" %>
 <% List<Entry> entries = (List<Entry>) session.getAttribute("entries");
     String name = (String) session.getAttribute("name");
@@ -18,8 +16,8 @@
     <link href='resources/calendar/packages/list/main.css' rel='stylesheet'/>
     <link href='resources/calendar/packages/bootstrap/main.css' rel='stylesheet'/>
     <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
-<%--    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet' />--%>
-<%--    <link href='https://bootswatch.com/4/litera/bootstrap.min.css' rel='stylesheet'/>--%>
+    <%--    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet' />--%>
+    <%--    <link href='https://bootswatch.com/4/litera/bootstrap.min.css' rel='stylesheet'/>--%>
     <link rel="stylesheet" type="text/css" href="resources/css/myCalendar.css"/>
     <link rel="stylesheet" type="text/css" href="resources/css/style.css"/>
 
@@ -35,10 +33,10 @@
 
     <title>Home</title>
     <script>
-        $(document).ready(function(){
-            var url='https://api.openweathermap.org/data/2.5/forecast?q=<%=city%>,us&units=imperial&appid=f7ea971141408669dea697373e8214ba';
-            $.getJSON(url, function(data){
-                $('#icon0').attr('src','http://openweathermap.org/img/w/' + data.list[0].weather[0].icon + '.png');
+        $(document).ready(function () {
+            var url = 'https://api.openweathermap.org/data/2.5/forecast?q=<%=city%>,us&units=imperial&appid=f7ea971141408669dea697373e8214ba';
+            $.getJSON(url, function (data) {
+                $('#icon0').attr('src', 'http://openweathermap.org/img/w/' + data.list[0].weather[0].icon + '.png');
                 $('#weather0').html(data.list[0].weather[0].description);
                 $('#temp0').html(data.list[0].main.temp + '&deg; F');
             });
@@ -52,6 +50,7 @@
             String comparison = comparisonFormatter.format(timeStamp);
             SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy hh:mm aa");
             String formatted = formatter.format(timeStamp);%>{
+            timeINMilli: '<%=entry.getTimeInMilliSeconds()%>',
             comparisonDate: '<%=comparison%>',
             formattedDate: '<%=formatted%>',
             title: '<%=entry.getTitle()%>',
@@ -62,7 +61,7 @@
 
         function reverseEntries() {
             entries.reverse();
-            if(!start || !end) {
+            if (!start || !end) {
                 updateAllEntries();
             } else {
                 updateEntries();
@@ -82,14 +81,14 @@
             list.innerHTML = "";
             var hasEntry = false;
 
-            var from = new Date(startDate[0], parseInt(startDate[1])-1, startDate[2]);
-            var to   = new Date(endDate[0], parseInt(endDate[1])-1, endDate[2]-1);
+            var from = new Date(startDate[0], parseInt(startDate[1]) - 1, startDate[2]);
+            var to = new Date(endDate[0], parseInt(endDate[1]) - 1, endDate[2] - 1);
 
             entries.forEach(function (entry) {
                 var dateCheck = entry.comparisonDate.split('-');
-                var check = new Date(dateCheck[0], parseInt(dateCheck[1])-1, dateCheck[2]);
+                var check = new Date(dateCheck[0], parseInt(dateCheck[1]) - 1, dateCheck[2]);
 
-                if(check >= from && check <= to) {
+                if (check >= from && check <= to) {
                     hasEntry = true;
                     list.innerHTML = list.innerHTML +
                         '<div class="container">\n' +
@@ -99,8 +98,8 @@
                 }
             });
 
-            if(!hasEntry) {
-                if(from.getTime() === to.getTime()) {
+            if (!hasEntry) {
+                if (from.getTime() === to.getTime()) {
                     list.innerHTML = '<div class="container">\n' +
                         '<p><strong>No posts from ' + startDate[1] + '/' + startDate[2] + '/' + startDate[0] + '</strong></div>'
                 } else {
@@ -109,16 +108,18 @@
                 }
             }
         }
+
         function updateAllEntries() {
             var list = document.getElementById('entry-list');
             list.innerHTML = "";
 
             document.getElementById('displaying-dates').innerText = 'Displaying: All Posts';
 
-            if(entries.length > 0) {
+            if (entries.length > 0) {
                 entries.forEach(function (entry) {
                     list.innerHTML = list.innerHTML +
                         '<div class="container">\n' +
+                        '<div class="delete-btn-container"> <a href="/entries/delete/'+ entry.timeINMilli+'">X</a></div>' +
                         '<p><strong>' + entry.title + '</strong> - ' + entry.formattedDate + '</p>\n' +
                         '<p>' + entry.content + '</p>\n' +
                         '</div>'
@@ -140,7 +141,7 @@
                 //     right: 'next'
                 // },
                 selectable: true,
-                select: function(selectInfo) {
+                select: function (selectInfo) {
                     start = selectInfo.startStr;
                     end = selectInfo.endStr;
                     var hasEntry = false;
@@ -148,12 +149,12 @@
                     var endDate = end.split('-');
                     var list = document.getElementById('entry-list');
                     list.innerHTML = "";
-                    var from = new Date(startDate[0], parseInt(startDate[1])-1, startDate[2]);
-                    var to = new Date(endDate[0], parseInt(endDate[1])-1, endDate[2]-1);
+                    var from = new Date(startDate[0], parseInt(startDate[1]) - 1, startDate[2]);
+                    var to = new Date(endDate[0], parseInt(endDate[1]) - 1, endDate[2] - 1);
 
                     var display = document.getElementById('displaying-dates');
 
-                    if(from.getTime() === to.getTime()) {
+                    if (from.getTime() === to.getTime()) {
                         display.innerText = 'Displaying: ' + startDate[1] + '/' + startDate[2] + '/' + startDate[0];
                     } else {
                         display.innerText = 'Displaying: ' + startDate[1] + '/' + startDate[2] + '/' + startDate[0] + ' - ' + endDate[1] + '/' + (endDate[2] - 1) + '/' + endDate[0];
@@ -161,9 +162,9 @@
 
                     entries.forEach(function (entry) {
                         var dateCheck = entry.comparisonDate.split('-');
-                        var check = new Date(dateCheck[0], parseInt(dateCheck[1])-1, dateCheck[2]);
+                        var check = new Date(dateCheck[0], parseInt(dateCheck[1]) - 1, dateCheck[2]);
 
-                        if(check >= from && check <= to) {
+                        if (check >= from && check <= to) {
                             hasEntry = true;
                             list.innerHTML = list.innerHTML +
                                 '<div class="container">\n' +
@@ -173,13 +174,13 @@
                         }
                     });
 
-                    if(!hasEntry) {
-                        if(from.getTime() === to.getTime()) {
+                    if (!hasEntry) {
+                        if (from.getTime() === to.getTime()) {
                             list.innerHTML = '<div class="container">\n' +
                                 '<p><strong>No posts from ' + startDate[1] + '/' + startDate[2] + '/' + startDate[0] + '</strong></div>'
                         } else {
                             list.innerHTML = '<div class="container">\n' +
-                            '<p><strong>No posts from ' + startDate[1] + '/' + startDate[2] + '/' + startDate[0] + ' to ' + endDate[1] + '/' + (endDate[2] - 1) + '/' + endDate[0] + '</strong></div>'
+                                '<p><strong>No posts from ' + startDate[1] + '/' + startDate[2] + '/' + startDate[0] + ' to ' + endDate[1] + '/' + (endDate[2] - 1) + '/' + endDate[0] + '</strong></div>'
                         }
                     }
                 },
@@ -216,7 +217,7 @@
                     },
                     <%}%>
                 ]
-        });
+            });
             calendar.render();
             updateAllEntries();
 
@@ -232,21 +233,21 @@
                         ampm = today.getHours() >= 12 ? 'PM' : 'AM';
                     timeText = document.getElementById('time');
                     time = timeText.innerText.split(':');
-                    if(m + " " + ampm != time[1]) {
+                    if (m + " " + ampm != time[1]) {
                         timeText.innerText = h + ":" + m + " " + ampm;
-                        if(h != time[0]) {
+                        if (h != time[0]) {
                             var rawBirthday = '<%=birthday%>'.split('-');
-                            var birthday = new Date(rawBirthday[0], parseInt(rawBirthday[1])-1, rawBirthday[2]);
+                            var birthday = new Date(rawBirthday[0], parseInt(rawBirthday[1]) - 1, rawBirthday[2]);
                             var hour = today.getHours();
                             var greeting = document.getElementById("greeting");
-                            if(today.getMonth() == birthday.getMonth() && today.getDate() == birthday.getDate()) {
+                            if (today.getMonth() == birthday.getMonth() && today.getDate() == birthday.getDate()) {
                                 greeting.innerText = "Happy Birthday, <%=name%>!";
                             } else {
-                                if(hour >= 5 && hour <= 11) {
+                                if (hour >= 5 && hour <= 11) {
                                     greeting.innerText = "Good Morning, <%=name%>";
-                                } else if(hour >= 12 && hour <= 16) {
+                                } else if (hour >= 12 && hour <= 16) {
                                     greeting.innerText = "Good Afternoon, <%=name%>";
-                                } else if(hour >= 17 && hour <= 20) {
+                                } else if (hour >= 17 && hour <= 20) {
                                     greeting.innerText = "Good Evening, <%=name%>";
                                 } else {
                                     greeting.innerText = "Good Night, <%=name%>";
@@ -258,6 +259,7 @@
                         startTime()
                     }, 500);
                 }
+
                 startTime();
             })();
 
@@ -351,10 +353,10 @@
             <div class="article" id="news4tit"></div>
         </div>
     </a>
-<%--    <div class="news-container">--%>
-<%--        <div class="article" id="news5tit"></div>--%>
-<%--        <div class="article" id="news5url"></div>--%>
-<%--    </div>--%>
+    <%--    <div class="news-container">--%>
+    <%--        <div class="article" id="news5tit"></div>--%>
+    <%--        <div class="article" id="news5url"></div>--%>
+    <%--    </div>--%>
 </div>
 </body>
 </html>
