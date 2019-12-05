@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1971f9a9-8b8d-427d-a4df-1d248442cb03" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/LoginJpaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/LoginJpaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/ProfileRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/ProfileRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/model/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/model/Profile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/createProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/createProfile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/userSettings.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userSettings.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/newsManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/newsManager.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,8 +18,9 @@
         <option value="jsf" />
         <option value="Class" />
         <option value="Jsp File" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -44,14 +39,15 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574732799213" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../CSC280/Sprint 2/student-rest.with.jpa/student-rest" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575344561375" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/static/css" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -62,10 +58,14 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Neumont\Quarter 5\Web-Based Software Projects\Web-based-software-project\src\main\resources\static\css" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="pro150.intelligenius.diaryapp.controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Neumont\Quarter 5\Web-Based Software Projects\Web-based-software-project\src\main\resources\templates" />
       <recent name="C:\Neumont\Quarter 5\Web-Based Software Projects\Web-based-software-project\src\main\webapp" />
       <recent name="C:\Neumont\Quarter 5\Web-Based Software Projects\Web-based-software-project\src\main\webapp\WEB-INF\jsp" />
       <recent name="D:\Neumont\PRO150\Web-based-software-project\src\main\webapp\WEB-INF\jsp\views" />
@@ -108,7 +108,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="152863f8-044a-406e-b9d5-527d9bb82e3f" name="Default Changelist" comment="" />
+      <changelist id="1971f9a9-8b8d-427d-a4df-1d248442cb03" name="Default Changelist" comment="" />
       <created>1572915691350</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -129,6 +129,7 @@
       <workItem from="1575302046601" duration="2353000" />
       <workItem from="1575307030373" duration="1777000" />
       <workItem from="1575331928764" duration="7825000" />
+      <workItem from="1575473600783" duration="2156000" />
     </task>
     <task id="LOCAL-00001" summary="added some test">
       <created>1572916330177</created>
@@ -256,7 +257,42 @@
       <option name="project" value="LOCAL" />
       <updated>1575340906412</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="yes">
+      <created>1575343821336</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1575343821336</updated>
+    </task>
+    <task id="LOCAL-00020" summary="news styling">
+      <created>1575399735868</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1575399735868</updated>
+    </task>
+    <task id="LOCAL-00021" summary="polished">
+      <created>1575421409285</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1575421409285</updated>
+    </task>
+    <task id="LOCAL-00022" summary="more polished">
+      <created>1575424205449</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1575424205449</updated>
+    </task>
+    <task id="LOCAL-00023" summary="more polished">
+      <created>1575473898635</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1575473898635</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,6 +340,10 @@
     <MESSAGE value="kk" />
     <MESSAGE value="home sweet home" />
     <MESSAGE value="fixed entry" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed entry" />
+    <MESSAGE value="yes" />
+    <MESSAGE value="news styling" />
+    <MESSAGE value="polished" />
+    <MESSAGE value="more polished" />
+    <option name="LAST_COMMIT_MESSAGE" value="more polished" />
   </component>
 </project>

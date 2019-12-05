@@ -1,5 +1,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String error = (String) session.getAttribute("error");
+    session.removeAttribute("error");
+%>
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="../resources/css/style.css"/>
@@ -7,7 +11,11 @@
 </head>
 <body>
 <div class="container">
-    <h1>Welcome to your diary</h1>
+    <h1>Create Profile</h1>
+    <%
+        if(error != null) { %>
+    <p class="error-message"><%=error%></p>
+    <%}%>
     <%--@elvariable id="profile" type=""--%>
     <form:form method="post" action="/profiles/create-profile" modelAttribute="profile">
         <div class="form-group">
@@ -23,7 +31,7 @@
             <label for="name" class="control-label">Name</label><i class="bar"></i>
         </div>
         <div class="form-group">
-            <input type="text" required="required" id="dateOfBirth" autocomplete="off" name="dateOfBirth"/>
+            <input type="date" required="required" id="dateOfBirth" autocomplete="off" name="dateOfBirth"/>
             <label for="dateOfBirth" class="control-label">Date of Birth</label><i class="bar"></i>
         </div>
         <div class="form-group">

@@ -6,6 +6,7 @@
 <% List<Entry> entries = (List<Entry>) session.getAttribute("entries");
     String name = (String) session.getAttribute("name");
     String city = (String) session.getAttribute("city");
+    String birthday = (String) session.getAttribute(("birthday"));
     entries.sort(Comparator.comparing(Entry::getTimeInMilliSeconds).reversed());
     session.removeAttribute("entries");%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -30,15 +31,13 @@
     <script src='../resources/calendar/packages/bootstrap/main.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<%--    <script src='../resources/weatherManager.js'></script>--%>
+    <script src='../resources/newsManager.js'></script>
 
     <title>Home</title>
     <script>
-        console.log('<%=city%>');
         $(document).ready(function(){
             var url='https://api.openweathermap.org/data/2.5/forecast?q=<%=city%>,us&units=imperial&appid=f7ea971141408669dea697373e8214ba';
             $.getJSON(url, function(data){
-                console.log(data);
                 $('#icon0').attr('src','http://openweathermap.org/img/w/' + data.list[0].weather[0].icon + '.png');
                 $('#weather0').html(data.list[0].weather[0].description);
                 $('#temp0').html(data.list[0].main.temp + '&deg; F');
@@ -81,14 +80,17 @@
             var endDate = end.split('-');
             var list = document.getElementById('entry-list');
             list.innerHTML = "";
+            var hasEntry = false;
+
+            var from = new Date(startDate[0], parseInt(startDate[1])-1, startDate[2]);
+            var to   = new Date(endDate[0], parseInt(endDate[1])-1, endDate[2]-1);
 
             entries.forEach(function (entry) {
                 var dateCheck = entry.comparisonDate.split('-');
-                var from = new Date(startDate[0], parseInt(startDate[1])-1, startDate[2]);
-                var to   = new Date(endDate[0], parseInt(endDate[1])-1, endDate[2]);
                 var check = new Date(dateCheck[0], parseInt(dateCheck[1])-1, dateCheck[2]);
 
-                if(check >= from && check < to) {
+                if(check >= from && check <= to) {
+                    hasEntry = true;
                     list.innerHTML = list.innerHTML +
                         '<div class="container">\n' +
                         '<p><strong>' + entry.title + '</strong> - ' + entry.formattedDate + '</p>\n' +
@@ -96,8 +98,17 @@
                         '</div>'
                 }
             });
-        }
 
+            if(!hasEntry) {
+                if(from.getTime() === to.getTime()) {
+                    list.innerHTML = '<div class="container">\n' +
+                        '<p><strong>No posts from ' + startDate[1] + '/' + startDate[2] + '/' + startDate[0] + '</strong></div>'
+                } else {
+                    list.innerHTML = '<div class="container">\n' +
+                        '<p><strong>No posts from ' + startDate[1] + '/' + startDate[2] + '/' + startDate[0] + ' to ' + endDate[1] + '/' + (endDate[2] - 1) + '/' + endDate[0] + '</strong></div>'
+                }
+            }
+        }
         function updateAllEntries() {
             var list = document.getElementById('entry-list');
             list.innerHTML = "";
@@ -188,12 +199,23 @@
                     } %>
                     <% for(Map.Entry<String,Integer> element : entriesPerDate.entrySet()) {%>
                     {
-                        title: '<%=element.getValue()%>' + ' Posts',
+                        title: '<%=element.getValue()%>' + ' Post' <%
+                        if(element.getValue() > 1) { %>
+                            + 's'
+                        <%}
+                        %>,
                         start: '<%=element.getKey()%>'
                     },
                     <%}%>
+                    <% String[] birthdayParts = birthday.split("-");
+                    for(int i = 0; i < 100; i++) {
+                    String date = (Integer.parseInt(birthdayParts[0]) + i) + "-" + birthdayParts[1] + "-" + birthdayParts[2];        %>
+                    {
+                        title: 'Happy B-Day!',
+                        start: '<%=date%>'
+                    },
+                    <%}%>
                 ]
-
         });
             calendar.render();
             updateAllEntries();
@@ -206,22 +228,29 @@
                 function startTime() {
                     var today = new Date(),
                         h = today.getHours() % 12 == 0 ? 12 : today.getHours() % 12,
-                        m = checkTime(today.getMinutes());
+                        m = checkTime(today.getMinutes()),
+                        ampm = today.getHours() >= 12 ? 'PM' : 'AM';
                     timeText = document.getElementById('time');
                     time = timeText.innerText.split(':');
-                    if(m != time[1]) {
-                        timeText.innerText = h + ":" + m;
+                    if(m + " " + ampm != time[1]) {
+                        timeText.innerText = h + ":" + m + " " + ampm;
                         if(h != time[0]) {
+                            var rawBirthday = '<%=birthday%>'.split('-');
+                            var birthday = new Date(rawBirthday[0], parseInt(rawBirthday[1])-1, rawBirthday[2]);
                             var hour = today.getHours();
                             var greeting = document.getElementById("greeting");
-                            if(hour >= 5 && hour <= 12) {
-                                greeting.innerText = "Good Morning, <%=name%>";
-                            } else if(hour >= 13 && hour <= 17) {
-                                greeting.innerText = "Good Afternoon, <%=name%>";
-                            } else if(hour >= 18 && hour <= 21) {
-                                greeting.innerText = "Good Evening, <%=name%>";
+                            if(today.getMonth() == birthday.getMonth() && today.getDate() == birthday.getDate()) {
+                                greeting.innerText = "Happy Birthday, <%=name%>!";
                             } else {
-                                greeting.innerText = "Good Night, <%=name%>";
+                                if(hour >= 5 && hour <= 11) {
+                                    greeting.innerText = "Good Morning, <%=name%>";
+                                } else if(hour >= 12 && hour <= 16) {
+                                    greeting.innerText = "Good Afternoon, <%=name%>";
+                                } else if(hour >= 17 && hour <= 20) {
+                                    greeting.innerText = "Good Evening, <%=name%>";
+                                } else {
+                                    greeting.innerText = "Good Night, <%=name%>";
+                                }
                             }
                         }
                     }
@@ -261,13 +290,13 @@
     </span>
     <span class="current-weather-display">
         <span><img id="icon0"/></span>
-        <span id='temp0'></span>
+        <span id='temp0'>           </span>
     </span>
     <span class="header-right">
         <a class="active" href="/home">Home</a>
         <a href="/entries/addEntry">Create Post</a>
         <a href="/profiles/edit">Edit Personal Settings</a>
-        <a href="/">Logout</a>
+        <a class="logout" href="/">Logout</a>
     </span>
 </div>
 
@@ -275,24 +304,57 @@
     <div id='calendar'></div>
     <div class="option-container">
         <div class="post-display">
-            <label id="instructions" for="postSort">Show Newest Post First</label>
+            <p>Show Newest Post First</p>
             <label class="switch">
                 <input id="postSort" type="checkbox" onclick="reverseEntries()" checked>
                 <span class="slider round"></span>
             </label>
         </div>
     </div>
-        <div class="post-display">
-            <div class="button-container">
-                <input id="allPosts" type="button" class="button" onclick="showAllEntries()" value="Show All Posts"/>
-            </div>
+    <div class="post-display">
+        <div class="button-container">
+            <input id="allPosts" type="button" class="button" onclick="showAllEntries()" value="Show All Posts"/>
         </div>
+    </div>
 </div>
+
 <div>
     <div class="showing">
         <p id="displaying-dates"></p>
     </div>
     <div id="entry-list" class="list-container right"></div>
+</div>
+<div class="news">
+    <h3>News</h3>
+    <a id="news0" target="_blank">
+        <div class="news-container">
+            <div class="article" id="news0tit"></div>
+        </div>
+    </a>
+    <a id="news1" target="_blank">
+        <div class="news-container">
+            <div class="article" id="news1tit"></div>
+        </div>
+    </a>
+    <a id="news2" target="_blank">
+        <div class="news-container">
+            <div class="article" id="news2tit"></div>
+        </div>
+    </a>
+    <a id="news3" target="_blank">
+        <div class="news-container">
+            <div class="article" id="news3tit"></div>
+        </div>
+    </a>
+    <a id="news4" target="_blank">
+        <div class="news-container">
+            <div class="article" id="news4tit"></div>
+        </div>
+    </a>
+<%--    <div class="news-container">--%>
+<%--        <div class="article" id="news5tit"></div>--%>
+<%--        <div class="article" id="news5url"></div>--%>
+<%--    </div>--%>
 </div>
 </body>
 </html>
