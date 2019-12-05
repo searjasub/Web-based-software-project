@@ -36,6 +36,16 @@ h1 {
     margin: 3rem auto;
     background: #fff;
     width: 100%;
+    padding: 3rem 5rem;
+    border-radius: 1px;
+}
+
+.container-diary {
+    position: relative;
+    max-width: 40rem;
+    margin: 3rem auto;
+    background: #fff;
+    width: 100%;
     padding: 1.5rem 2rem;
     border-radius: 1px;
 }

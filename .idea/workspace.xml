@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1971f9a9-8b8d-427d-a4df-1d248442cb03" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/EntryRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/EntryRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/LoginJpaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pro150/intelligenius/diaryapp/controller/LoginJpaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" afterDir="false" />
     </list>
@@ -320,7 +318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575473898635</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Added delete functionality for entries :D :D :D :D">
+      <created>1575506811324</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1575506811324</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,45 +377,50 @@
     <MESSAGE value="news styling" />
     <MESSAGE value="polished" />
     <MESSAGE value="more polished" />
-    <option name="LAST_COMMIT_MESSAGE" value="more polished" />
+    <MESSAGE value="Added delete functionality for entries :D :D :D :D" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added delete functionality for entries :D :D :D :D" />
   </component>
   <component name="WindowStateProjectService">
     <state x="609" y="130" key="#DiaryAppApplication" timestamp="1575505395264">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="609" y="130" key="#DiaryAppApplication/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575505395264" />
-    <state width="1556" height="264" key="GridCell.Tab.0.bottom" timestamp="1575506778915">
+    <state x="512" y="28" key="CommitChangelistDialog2" timestamp="1575506810435">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1556" height="264" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575506778915" />
-    <state width="1556" height="264" key="GridCell.Tab.0.center" timestamp="1575506778915">
+    <state x="512" y="28" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575506810435" />
+    <state width="1556" height="264" key="GridCell.Tab.0.bottom" timestamp="1575506985686">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1556" height="264" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575506778915" />
-    <state width="1556" height="264" key="GridCell.Tab.0.left" timestamp="1575506778915">
+    <state width="1556" height="264" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575506985686" />
+    <state width="1556" height="264" key="GridCell.Tab.0.center" timestamp="1575506985686">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1556" height="264" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575506778915" />
-    <state width="1556" height="264" key="GridCell.Tab.0.right" timestamp="1575506778915">
+    <state width="1556" height="264" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575506985686" />
+    <state width="1556" height="264" key="GridCell.Tab.0.left" timestamp="1575506985686">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1556" height="264" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575506778915" />
-    <state width="1556" height="264" key="GridCell.Tab.1.bottom" timestamp="1575506778915">
+    <state width="1556" height="264" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575506985686" />
+    <state width="1556" height="264" key="GridCell.Tab.0.right" timestamp="1575506985686">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1556" height="264" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575506778915" />
-    <state width="1556" height="264" key="GridCell.Tab.1.center" timestamp="1575506778915">
+    <state width="1556" height="264" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575506985686" />
+    <state width="1556" height="264" key="GridCell.Tab.1.bottom" timestamp="1575506985686">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1556" height="264" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575506778915" />
-    <state width="1556" height="264" key="GridCell.Tab.1.left" timestamp="1575506778915">
+    <state width="1556" height="264" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575506985686" />
+    <state width="1556" height="264" key="GridCell.Tab.1.center" timestamp="1575506985686">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1556" height="264" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575506778915" />
-    <state width="1556" height="264" key="GridCell.Tab.1.right" timestamp="1575506778915">
+    <state width="1556" height="264" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575506985686" />
+    <state width="1556" height="264" key="GridCell.Tab.1.left" timestamp="1575506985686">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1556" height="264" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575506778915" />
+    <state width="1556" height="264" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575506985686" />
+    <state width="1556" height="264" key="GridCell.Tab.1.right" timestamp="1575506985686">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1556" height="264" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1575506985686" />
     <state x="555" y="220" key="MultipleFileMergeDialog" timestamp="1575504928863">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
