@@ -91,7 +91,8 @@
                 if (check >= from && check <= to) {
                     hasEntry = true;
                     list.innerHTML = list.innerHTML +
-                        '<div class="container">\n' +
+                        '<div class="container-diary">\n' +
+                        '<div class="delete-btn-container"> <a href="/entries/delete/'+ entry.timeINMilli+'">X</a></div>' +
                         '<p><strong>' + entry.title + '</strong> - ' + entry.formattedDate + '</p>\n' +
                         '<p>' + entry.content + '</p>\n' +
                         '</div>'
@@ -167,7 +168,8 @@
                         if (check >= from && check <= to) {
                             hasEntry = true;
                             list.innerHTML = list.innerHTML +
-                                '<div class="container">\n' +
+                                '<div class="container-diary">\n' +
+                                '<div class="delete-btn-container"> <a href="/entries/delete/'+ entry.timeINMilli+'">X</a></div>' +
                                 '<p><strong>' + entry.title + '</strong> - ' + entry.formattedDate + '</p>\n' +
                                 '<p>' + entry.content + '</p>\n' +
                                 '</div>'
